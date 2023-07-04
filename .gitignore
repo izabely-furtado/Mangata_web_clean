@@ -1,0 +1,10 @@
+# Comentários começam com #
+# Ignorar arquivos de log
+*.log
+
+# Ignorar diretório node_modules
+node_modules/
+node/node_modules/
+
+# Ignorar arquivos de configuração
+config.json
