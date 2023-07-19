@@ -37,10 +37,9 @@ import { ToggleButtonModule } from 'primeng/togglebutton';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { SpeedDialModule } from 'primeng/speeddial';
 import { TableModule } from 'primeng/table';
-//import { DataViewModule, DataViewLayoutOptions } from 'primeng/dataview';
 import { ScrollerModule } from 'primeng/scroller';
 import { OrderListModule } from 'primeng/orderlist';
-//import { OrganizationChartModule } from 'primeng/organizationchart';
+import { OrganizationChartModule } from 'primeng/organizationchart';
 import { PaginatorModule } from 'primeng/paginator';
 import { PickListModule } from 'primeng/picklist';
 import { TreeModule } from 'primeng/tree';
@@ -70,7 +69,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { StepsModule } from 'primeng/steps';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TieredMenuModule } from 'primeng/tieredmenu';
-//import { ChartModule } from 'primeng/chart';
+import { ChartModule } from 'primeng/chart';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { CarouselModule } from 'primeng/carousel';
@@ -89,7 +88,7 @@ import { RippleModule } from 'primeng/ripple';
 import { AutoFocusModule } from 'primeng/autofocus';
 import { AnimateModule } from 'primeng/animate';
 import { OverlayModule } from 'primeng/overlay';
-//import { FilterService } from 'primeng/api';
+import { FilterService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -132,11 +131,9 @@ import { OverlayModule } from 'primeng/overlay';
     SplitButtonModule,
     SpeedDialModule,
     TableModule,
-    //DataViewModule, 
-    //DataViewLayoutOptions,
     ScrollerModule,
     OrderListModule, 
-    //OrganizationChartModule, 
+    OrganizationChartModule, 
     PaginatorModule,
     PickListModule,
     TreeModule,
@@ -166,7 +163,7 @@ import { OverlayModule } from 'primeng/overlay';
     StepsModule,
     TabMenuModule, 
     TieredMenuModule, 
-    //ChartModule,
+    ChartModule,
     MessagesModule, 
     ToastModule,
     CarouselModule, 
@@ -185,9 +182,9 @@ import { OverlayModule } from 'primeng/overlay';
     AutoFocusModule, 
     AnimateModule, 
     OverlayModule, 
-   // FilterService 
+     
   ],
-  providers: [],
+  providers: [FilterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
