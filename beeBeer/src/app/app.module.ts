@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './components/hello/hello.component';
 import { GoodbyeComponent } from './components/goodbye/goodbye.component';
+import {DockModule} from 'primeng/dock';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { GoodbyeComponent } from './components/goodbye/goodbye.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DockModule
   ],
   providers: [],
   bootstrap: [AppComponent]

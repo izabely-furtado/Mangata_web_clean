@@ -19,10 +19,10 @@
     "@angular/platform-browser-dynamic": "^12.0.0",
     "@angular/router": "^12.0.0",
     "primeicons": "^4.1.0",
-    "primeng": "^12.2.0",
+    "primeng": "^12.2.3",
     "rxjs": "^7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.13.0"
+    "zone.js": "^0.13.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^12.0.0",
