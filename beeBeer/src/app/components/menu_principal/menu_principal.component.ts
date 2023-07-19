@@ -5,9 +5,9 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-hello',
-  templateUrl: './hello.component.html',
-  styleUrls: ['./hello.component.scss']
+  selector: 'app-menu_principal',
+  templateUrl: './menu_principal.component.html',
+  styleUrls: ['./menu_principal.component.scss']
 })
 export class HelloComponent {
   displayTerminal: boolean = false;
