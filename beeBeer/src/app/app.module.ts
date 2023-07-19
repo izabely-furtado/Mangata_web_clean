@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './components/hello/hello.component';
-import { GoodbyeComponent } from './components/goodbye/goodbye.component';
+import { HelloComponent } from './modules/hello/hello.component';
+import { GoodbyeComponent } from './modules/goodbye/goodbye.component';
 import { DockModule } from 'primeng/dock';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -89,12 +89,14 @@ import { AutoFocusModule } from 'primeng/autofocus';
 import { AnimateModule } from 'primeng/animate';
 import { OverlayModule } from 'primeng/overlay';
 import { FilterService } from 'primeng/api';
+import { MenuPrincipalComponent } from './components/menu-principal/menu-principal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    GoodbyeComponent
+    GoodbyeComponent,
+    MenuPrincipalComponent
   ],
   imports: [
     BrowserModule,
