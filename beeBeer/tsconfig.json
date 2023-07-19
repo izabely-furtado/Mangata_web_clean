@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "ES2022",
     "module": "es2020",
     "strict": true,
     "esModuleInterop": true,
@@ -11,7 +11,11 @@
     "baseUrl": "./src",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "lib": ["es2018", "dom"]
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "useDefineForClassFields": false
   },
   "include": [
     "src/**/*.ts"
