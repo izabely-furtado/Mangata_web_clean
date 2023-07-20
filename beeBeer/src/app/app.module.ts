@@ -90,13 +90,19 @@ import { AnimateModule } from 'primeng/animate';
 import { OverlayModule } from 'primeng/overlay';
 import { FilterService } from 'primeng/api';
 import { MenuPrincipalComponent } from './components/menu-principal/menu-principal.component';
+import { TerminalComponent } from './components/terminal/terminal.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { BackgroundCloudsComponent } from './components/background-clouds/background-clouds.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
     GoodbyeComponent,
-    MenuPrincipalComponent
+    MenuPrincipalComponent,
+    TerminalComponent,
+    FooterComponent,
+    BackgroundCloudsComponent
   ],
   imports: [
     BrowserModule,
