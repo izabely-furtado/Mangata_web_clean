@@ -93,6 +93,7 @@ import { MenuPrincipalComponent } from './components/menu-principal/menu-princip
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackgroundCloudsComponent } from './components/background-clouds/background-clouds.component';
+import { PerfilComponent } from './modules/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,8 @@ import { BackgroundCloudsComponent } from './components/background-clouds/backgr
     MenuPrincipalComponent,
     TerminalComponent,
     FooterComponent,
-    BackgroundCloudsComponent
+    BackgroundCloudsComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
