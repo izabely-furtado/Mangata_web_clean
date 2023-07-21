@@ -35,7 +35,7 @@ export class MenuPrincipalComponent {
         this.items = [
             {
                 label: 'Empresa',
-                icon: './assets/images/3D-Icons/53.png'
+                icon: './assets/images/3D-Icons/54.png'
             },
             {
                 label: 'Visão Empresarial',
@@ -54,7 +54,7 @@ export class MenuPrincipalComponent {
                 icon: './assets/images/3D-Icons/35.png'
             },
             {
-                label: 'Os Melhores',
+                label: 'Ranking',
                 icon: './assets/images/3D-Icons/55.png'
             },
             {
