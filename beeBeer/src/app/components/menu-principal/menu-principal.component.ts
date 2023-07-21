@@ -34,20 +34,36 @@ export class MenuPrincipalComponent {
     ngOnInit() {
         this.items = [
             {
-                label: 'Finder',
-                icon: 'https://primefaces.org/cdn/primeng/images/dock/finder.svg'
+                label: 'Empresa',
+                icon: './assets/images/3D-Icons/53.png'
             },
             {
-                label: 'App Store',
-                icon: 'https://primefaces.org/cdn/primeng/images/dock/appstore.svg'
+                label: 'Visão Empresarial',
+                icon: './assets/images/3D-Icons/23.png'
             },
             {
-                label: 'Photos',
-                icon: 'https://primefaces.org/cdn/primeng/images/dock/photos.svg'
+                label: 'Cadastros',
+                icon: './assets/images/3D-Icons/38.png'
             },
             {
-                label: 'Trash',
-                icon: 'https://primefaces.org/cdn/primeng/images/dock/trash.png'
+                label: 'Eventos',
+                icon: './assets/images/3D-Icons/43.png'
+            },
+            {
+                label: 'Permissões',
+                icon: './assets/images/3D-Icons/35.png'
+            },
+            {
+                label: 'Os Melhores',
+                icon: './assets/images/3D-Icons/55.png'
+            },
+            {
+                label: 'Faturamento',
+                icon: './assets/images/3D-Icons/19.png'
+            },
+            {
+                label: 'Perfil',
+                icon: './assets/images/3D-Icons/18.png'
             }
         ];
     }
