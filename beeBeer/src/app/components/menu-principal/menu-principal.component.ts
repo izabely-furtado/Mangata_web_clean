@@ -36,42 +36,50 @@ export class MenuPrincipalComponent {
             {
                 label: 'Empresa',
                 icon: './assets/images/3D-Icons/52.png',
-                url: './empresa'
+                url: './empresa',
+                target: '_self'
             },
             {
                 label: 'Visão Empresarial',
                 icon: './assets/images/3D-Icons/23.png',
-                url: './visao'
+                url: './visao',
+                target: '_self'
             },
             {
                 label: 'Cadastros',
                 icon: './assets/images/3D-Icons/32.png',
-                url: './cadastros'
+                url: './cadastros',
+                target: '_self'
             },
             {
                 label: 'Eventos',
                 icon: './assets/images/3D-Icons/43.png',
-                url: './eventos'
+                url: './eventos',
+                target: '_self'
             },
             {
                 label: 'Permissões',
                 icon: './assets/images/3D-Icons/35.png',
-                url: './permissoes'
+                url: './permissoes',
+                target: '_self'
             },
             {
                 label: 'Ranking',
                 icon: './assets/images/3D-Icons/55.png',
-                url: './ranking'
+                url: './ranking',
+                target: '_self'
             },
             {
                 label: 'Faturamento',
                 icon: './assets/images/3D-Icons/19.png',
-                url: './faturamento'
+                url: './faturamento',
+                target: '_self'
             },
             {
                 label: 'Perfil',
                 icon: './assets/images/3D-Icons/18.png',
-                url: './perfil'
+                url: './perfil',
+                target: '_self'
             }
         ];
     }

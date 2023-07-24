@@ -5,8 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloComponent } from './modules/hello/hello.component';
-import { GoodbyeComponent } from './modules/goodbye/goodbye.component';
+import { HelloComponent } from './pages/hello/hello.component';
+import { GoodbyeComponent } from './pages/goodbye/goodbye.component';
 import { DockModule } from 'primeng/dock';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -93,7 +93,7 @@ import { MenuPrincipalComponent } from './components/menu-principal/menu-princip
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackgroundCloudsComponent } from './components/background-clouds/background-clouds.component';
-import { PerfilComponent } from './modules/perfil/perfil.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 @NgModule({
   declarations: [
