@@ -1,43 +1,63 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Perfil } from 'app/models/perfil';
+import { Perfil, PerfilMock } from 'app/models/perfil';
+import { environment } from 'enviroments/environment.prod';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PerfilService {
-  private perfils: Perfil[] = [
-    { id: 1, name: 'Produto A', price: 10, stockQuantity: 100 },
-    { id: 2, name: 'Produto B', price: 20, stockQuantity: 50 },
-    { id: 3, name: 'Produto C', price: 30, stockQuantity: 75 },
-  ];
-
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   // Retorna todos os produtos
-  getAllPerfils(): Perfil[] {
-    return this.perfils;
+  getAllPerfils(): Observable<Perfil[]> {
+    if (environment.mock) {
+        return of(PerfilMock.getMockArray(20));
+    }
+    else {
+        return this.http.get<Perfil[]>(environment.apiUrl);
+    }
   }
 
   // Retorna um produto pelo ID
-  getPerfilById(id: number): Perfil | undefined {
-    return this.perfils.find((perfil) => perfil.id === id);
+  getPerfilById(id: number): Observable<Perfil> {
+    if (environment.mock) {
+        return of(PerfilMock.getMock());
+    }
+    else {
+        return this.http.get<Perfil>(`${environment.apiUrl}/${id}`);
+    }
   }
 
   // Adiciona um novo produto
-  addPerfil(perfil: Perfil): void {
-    this.perfils.push(perfil);
+  addPerfil(perfil: Perfil): Observable<Perfil> {
+    if (environment.mock) {
+        return of(PerfilMock.getMock());
+    }
+    else {
+        return this.http.post<Perfil>(environment.apiUrl, perfil);
+    }
   }
 
   // Atualiza um produto existente
-  updatePerfil(perfil: Perfil): void {
-    const index = this.perfils.findIndex((p) => p.id === perfil.id);
-    if (index !== -1) {
-      this.perfils[index] = perfil;
+  updatePerfil(perfil: Perfil): Observable<Perfil> {
+    if (environment.mock) {
+        return of(PerfilMock.getMock());
+    }
+    else {
+        return this.http.put<Perfil>(`${environment.apiUrl}/${perfil.id}`, perfil);
     }
   }
 
   // Remove um produto pelo ID
-  deletePerfilById(id: number): void {
-    this.perfils = this.perfils.filter((perfil) => perfil.id !== id);
+  deletePerfilById(id: number): Observable<void> {
+    if (environment.mock) {
+        return of();
+    }
+    else {
+        return this.http.delete<void>(`${environment.apiUrl}/${id}`);
+    }
   }
+
 }
