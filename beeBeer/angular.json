@@ -58,6 +58,14 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "mock": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
             }
           },
           "defaultConfiguration": "production"
@@ -70,6 +78,9 @@
             },
             "development": {
               "browserTarget": "beeBeer:build:development"
+            },
+            "mock": {
+              "browserTarget": "beeBeer:build:mock"
             }
           },
           "defaultConfiguration": "development"
