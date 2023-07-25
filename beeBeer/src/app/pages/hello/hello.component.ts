@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { MockRandom } from 'app/utils/mock-random';
+import { MockRandom } from '../../utils/mock-random';
 
 @Component({
   selector: 'app-hello',

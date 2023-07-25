@@ -1,4 +1,5 @@
-import { MockRandom } from "app/utils/mock-random";
+
+import { MockRandom } from "../utils/mock-random";
 import { TipoImagem, TipoImagemMock } from "./enum/tipo-imagem";
 
 export interface Imagem {
