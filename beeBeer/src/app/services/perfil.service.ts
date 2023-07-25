@@ -1,57 +1,57 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Perfil, PerfilMock } from 'app/models/perfil';
-import { environment } from 'enviroments/environment.prod';
 import { Observable, of } from 'rxjs';
+import { Imagem, ImagemMock } from '../models/imagem';
+import { environment } from '../../enviroments/environment.prod';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PerfilService {
+export class ImagemService {
   constructor(private http: HttpClient) {}
 
   // Retorna todos os produtos
-  getAllPerfils(): Observable<Perfil[]> {
+  getAllImagems(): Observable<Imagem[]> {
     if (environment.mock) {
-        return of(PerfilMock.getMockArray(20));
+        return of(ImagemMock.getMockArray(20));
     }
     else {
-        return this.http.get<Perfil[]>(environment.apiUrl);
+        return this.http.get<Imagem[]>(environment.apiUrl);
     }
   }
 
   // Retorna um produto pelo ID
-  getPerfilById(id: number): Observable<Perfil> {
+  getImagemById(id: number): Observable<Imagem> {
     if (environment.mock) {
-        return of(PerfilMock.getMock());
+        return of(ImagemMock.getMock());
     }
     else {
-        return this.http.get<Perfil>(`${environment.apiUrl}/${id}`);
+        return this.http.get<Imagem>(`${environment.apiUrl}/${id}`);
     }
   }
 
   // Adiciona um novo produto
-  addPerfil(perfil: Perfil): Observable<Perfil> {
+  addImagem(perfil: Imagem): Observable<Imagem> {
     if (environment.mock) {
-        return of(PerfilMock.getMock());
+        return of(ImagemMock.getMock());
     }
     else {
-        return this.http.post<Perfil>(environment.apiUrl, perfil);
+        return this.http.post<Imagem>(environment.apiUrl, perfil);
     }
   }
 
   // Atualiza um produto existente
-  updatePerfil(perfil: Perfil): Observable<Perfil> {
+  updateImagem(perfil: Imagem): Observable<Imagem> {
     if (environment.mock) {
-        return of(PerfilMock.getMock());
+        return of(ImagemMock.getMock());
     }
     else {
-        return this.http.put<Perfil>(`${environment.apiUrl}/${perfil.id}`, perfil);
+        return this.http.put<Imagem>(`${environment.apiUrl}/${perfil.id}`, perfil);
     }
   }
 
   // Remove um produto pelo ID
-  deletePerfilById(id: number): Observable<void> {
+  deleteImagemById(id: number): Observable<void> {
     if (environment.mock) {
         return of();
     }
