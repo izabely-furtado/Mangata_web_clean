@@ -1,27 +1,35 @@
-export interface Perfil {
-    id: number;        
-    name: string;      
-    price: number;    
-    quantity: number; 
+import { MockRandom } from "app/utils/mock-random";
+import { TipoImagem, TipoImagemMock } from "./enum/tipo-imagem";
+
+export interface Imagem {
+    id: number;
+    tipo: TipoImagem;  
+    is_principal: boolean;
+    largura: number;
+    altura: number;
+    descricao: string;
+    foto: File | HTMLImageElement | string;
 }
 
-var randomExt = require("random-ext");
-export class PerfilMock {
-    static lista: Perfil[];
+export class ImagemMock {
+    static lista: Imagem[];
 
-    public static getMock(): Perfil {
+    public static getMock(): Imagem {
         return {
-            id: randomExt.integer(99, 1),
-            name: randomExt.string(20, 10),
-            price: randomExt.float(10.523, 3.021),
-            quantity: randomExt.integer(99, 10),
+            id: MockRandom.getInteger(1, 99),
+            tipo: TipoImagemMock.getMock(),  
+            is_principal: MockRandom.getBoolean(),
+            largura: MockRandom.getFloat(1, 99),
+            altura: MockRandom.getFloat(1, 99),
+            descricao: MockRandom.getString(),
+            foto: MockRandom.getString(),
         };
     }
 
-    public static getMockArray(quantidade : number) : Perfil[]{
+    public static getMockArray(quantidade : number) : Imagem[]{
         this.lista = [];
         for (let i = 0; i < quantidade; i++) {
-            this.lista.push(PerfilMock.getMock());
+            this.lista.push(ImagemMock.getMock());
           }
         return this.lista;
     }

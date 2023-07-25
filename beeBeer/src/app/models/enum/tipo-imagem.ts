@@ -1,6 +1,4 @@
-import { MockEnum } from "./mock-enum";
-
-enum TipoImagem {
+export enum TipoImagem {
     logo = 'Logo Principal',
     logo_fundo_escuro = 'Logo para Fundo Escuro',
     logo_fundo_claro = 'Logo para Fundo Claro',
@@ -11,7 +9,7 @@ enum TipoImagem {
   
 
 var randomExt = require("random-ext");
-export class TipoImagemMock  implements MockEnum {
+export class TipoImagemMock {
     static lista: [TipoImagem.logo, 
                    TipoImagem.logo_fundo_escuro, 
                    TipoImagem.logo_fundo_claro, 
@@ -20,11 +18,11 @@ export class TipoImagemMock  implements MockEnum {
                    TipoImagem.perfil
                 ];
 
-    getMock(): Object | TipoImagem {
+    public static getMock(): TipoImagem {
         return TipoImagemMock.lista[randomExt.integer(6, 1)];
     }
 
-    getMockArray(): Object[] | TipoImagem[] {
+    public static getMockArray(): TipoImagem[] {
         return TipoImagemMock.lista;
     }
                 
