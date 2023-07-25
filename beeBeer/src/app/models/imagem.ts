@@ -21,8 +21,8 @@ export class ImagemMock {
             is_principal: MockRandom.getBoolean(),
             largura: MockRandom.getFloat(1, 99),
             altura: MockRandom.getFloat(1, 99),
-            descricao: MockRandom.getString(),
-            foto: MockRandom.getString(),
+            descricao: "",//MockRandom.getSentence(),
+            foto: ""//MockRandom.getString(),
         };
     }
 

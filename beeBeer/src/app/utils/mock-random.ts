@@ -1,6 +1,7 @@
 var randomExt = require("random-ext");
-var Fakerator = require("fakerator");
-var fakerator = Fakerator("pt-BR");
+import { PhonyData } from "phonydata";
+let instance = new PhonyData(); //https://www.npmjs.com/package/phonydata
+
 
 export class MockRandom {
 
@@ -15,7 +16,7 @@ export class MockRandom {
 
     //////////////NUMBER
     public static getDigito() : number {
-        return fakerator.random.digit();
+        return randomExt.integer(9, 0);
     }
 
     public static getInteger(min: number, max: number) : number {
@@ -34,9 +35,9 @@ export class MockRandom {
         return randomExt.floatArray(length, max, min);
     }
 
-    public static getHex(length: number): string {
-        return fakerator.random.hex(length);
-    }
+    // public static getHex(length: number): string {
+    //     return fakerator.random.hex(length);
+    // }
 
     ////////////////DATE
     public static getDate(): Date {
@@ -52,118 +53,118 @@ export class MockRandom {
     }
 
     public static getDatePast(): Date {
-        return fakerator.date.past(new Date());
+        return randomExt.date(new Date(), new Date(1962, 6, 7, 12)); //// noon of 1962-07-07 (7th of July 1962, month is 0-indexed)
     }
 
     public static getDateFuture(): Date {
-        return fakerator.date.future(new Date());
+        return randomExt.date(new Date(3000, 6, 7, 12), new Date());
     }
 
-    ///////////////STRINGS
-    public static getLetter(): string {
-        return fakerator.random.letter();
-    }
+    // ///////////////STRINGS
+    // public static getLetter(): string {
+    //     return jabber.createWord(1);
+    // }
 
     public static getString(): string {
-        return fakerator.random.string(length);
+        return randomExt.string(20);
     }
 
-    public static getWord(): string {
-        return fakerator.lorem.word();
-    }
+    // public static getWord(): string {
+    //     return jabber.createWord(5, true);
+    // }
 
     public static getSentence(): string {
-        return fakerator.lorem.sentence()
+        return instance.loremSentence
     }
 
-    public static getParagraph(): string {
-        return fakerator.lorem.paragraph()
-    }
+    // public static getParagraph(): string {
+    //     return jabber.createParagraph(50); 
+    // }
     
-    //Nomes
-    public static getFullName(): string {
-        return fakerator.names.name();
-    }
+    // // //Nomes
+    // public static getFullName(): string {
+    //     return jabber.createFullName();
+    // }
 
-    public static getFristName(): string {
-        return fakerator.names.firstName();
-    }
+    // public static getFristName(): string {
+    //     return fakerator.names.firstName();
+    // }
 
-    public static getLastName(): string {
-        return fakerator.names.lastName();
-    }
+    // public static getLastName(): string {
+    //     return fakerator.names.lastName();
+    // }
 
-    public static getPrefixName(): string {
-        return fakerator.names.prefix()	
-    }
+    // public static getPrefixName(): string {
+    //     return fakerator.names.prefix()	
+    // }
 
-    public static getSuffixName(): string {
-        return fakerator.names.suffix()	
-    }
+    // public static getSuffixName(): string {
+    //     return fakerator.names.suffix()	
+    // }
 
-    //empresa
-    public static getCompany(): string {
-        return fakerator.company.name();
-    }
+    // //empresa
+    // public static getCompany(): string {
+    //     return fakerator.company.name();
+    // }
 
-    public static getSuffixCompany(): string {
-        return fakerator.company.suffix();
-    }
+    // public static getSuffixCompany(): string {
+    //     return fakerator.company.suffix();
+    // }
 
-    //internet
-    public static getUserName(): string {
-        return fakerator.internet.userName();
-    }
+    // //internet
+    // public static getUserName(): string {
+    //     return fakerator.internet.userName();
+    // }
 
-    public static getPassword(length: number) {
-        return fakerator.internet.password(length);
-    }
+    // public static getPassword(length: number) {
+    //     return fakerator.internet.password(length);
+    // }
 
-    public static getUrl(): string {
-        return fakerator.internet.url();
-    }
+    // public static getUrl(): string {
+    //     return fakerator.internet.url();
+    // }
 
-    public static getEmail(): string {
-        return fakerator.internet.email();
-    }
+    // public static getEmail(): string {
+    //     return fakerator.internet.email();
+    // }
 
     public static getColor(): string {
-        return fakerator.internet.color();
+        return randomExt.color();
     }
 
-    //localidade
-    public static getEstado(): string {
-        return fakerator.address.country();
-    }
+    // //localidade
+    // public static getEstado(): string {
+    //     return casual.state
+    // }
 
-    public static getEstadoCode(): string {
-        return fakerator.address.countryCode();
-    }
+    // public static getEstadoCode(): string {
+    //     return casual.state_abbr
+    // }
 
-    public static getCidade(): string {
-        return fakerator.address.city();
-    }
+    // public static getCidade(): string {
+    //     return casual.city 
+    // }
 
-    public static getRua(): string {
-        return fakerator.address.streetName();
-    }
+    // public static getRua(): string {
+    //     return casual.street
+    // }
 
-    public static getEndereco(): string {
-        return fakerator.address.street();
-    }
+    // public static getEndereco(): string {
+    //     return this.getRua + " - Nº:" + this.getInteger(10, 90) + " - " + this.getCidade + ", " + this.getEstado + " - " + this.getEstadoCode;
+    // }
 
-    public static getCEP(): string {
-        return fakerator.random.masked('999.999.999-99')
-    }
+    // public static getCEP(): string {
+    //     return fakerator.random.masked('999.999.999-99')
+    // }
 
-    /////////////////MASK    
-    public static getTelefone(): string {
-        return fakerator.random.masked('(99)9 9999-9999')
-    }
+    // /////////////////MASK    
+    // public static getTelefone(): string {
+    //     return fakerator.random.masked('(99)9 9999-9999')
+    // }
 
-    //"aaa-AAA_999:*" -> "aqa-RPG_932:6"
-    public static getMask(mask : string) {
-        return fakerator.random.masked(mask)
-    }
+    // //"aaa-AAA_999:*" -> "aqa-RPG_932:6"
+    // public static getMask(mask : string) {
+    //     return fakerator.random.masked(mask)
+    // }
 
 }

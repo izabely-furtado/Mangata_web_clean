@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MockRandom } from 'app/utils/mock-random';
 
 @Component({
   selector: 'app-hello',
@@ -7,7 +8,7 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./hello.component.scss']
 })
 export class HelloComponent {
-    name = 'John';
+    name = MockRandom.getSentence() + "";
 
     formGroup!: FormGroup;
 
