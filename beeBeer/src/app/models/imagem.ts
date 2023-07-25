@@ -6,9 +6,9 @@ export interface Imagem {
     id: number;
     tipo: TipoImagem;  
     is_principal: boolean;
-    largura: number;
-    altura: number;
-    descricao: string;
+    largura?: number;
+    altura?: number;
+    descricao?: string;
     foto: File | HTMLImageElement | string;
 }
 
@@ -22,8 +22,8 @@ export class ImagemMock {
             is_principal: MockRandom.getBoolean(),
             largura: MockRandom.getFloat(1, 99),
             altura: MockRandom.getFloat(1, 99),
-            descricao: "",//MockRandom.getSentence(),
-            foto: ""//MockRandom.getString(),
+            descricao: MockRandom.getSentence(),
+            foto: MockRandom.getString(),
         };
     }
 

@@ -35,9 +35,13 @@ export class MockRandom {
         return randomExt.floatArray(length, max, min);
     }
 
-    // public static getHex(length: number): string {
-    //     return fakerator.random.hex(length);
-    // }
+    public static getHex(length: number): string {
+        let retorno = "";
+        for (let i = 0; i < length; i++) {
+            retorno += instance.hexUpper;
+          }
+        return instance.hexUpper;
+    }
 
     ////////////////DATE
     public static getDate(): Date {
@@ -61,55 +65,38 @@ export class MockRandom {
     }
 
     // ///////////////STRINGS
-    // public static getLetter(): string {
-    //     return jabber.createWord(1);
-    // }
+    public static getLetter(): string {
+        return instance.letterLower;
+    }
 
     public static getString(): string {
         return randomExt.string(20);
     }
 
-    // public static getWord(): string {
-    //     return jabber.createWord(5, true);
-    // }
+    public static getWord(quantity: number): string {
+        return instance.words(quantity);
+    }
 
     public static getSentence(): string {
         return instance.loremSentence
     }
-
-    // public static getParagraph(): string {
-    //     return jabber.createParagraph(50); 
-    // }
     
     // // //Nomes
-    // public static getFullName(): string {
-    //     return jabber.createFullName();
-    // }
+    public static getName(): string {
+        return instance.givenName;
+    }
 
-    // public static getFristName(): string {
-    //     return fakerator.names.firstName();
-    // }
+    public static getFullName(): string {
+        return instance.personName;
+    }
 
-    // public static getLastName(): string {
-    //     return fakerator.names.lastName();
-    // }
+    public static getNameFemale(): string {
+        return instance.givenNameFemale;
+    }
 
-    // public static getPrefixName(): string {
-    //     return fakerator.names.prefix()	
-    // }
-
-    // public static getSuffixName(): string {
-    //     return fakerator.names.suffix()	
-    // }
-
-    // //empresa
-    // public static getCompany(): string {
-    //     return fakerator.company.name();
-    // }
-
-    // public static getSuffixCompany(): string {
-    //     return fakerator.company.suffix();
-    // }
+    public static getNameMale(): string {
+        return instance.givenNameMale;
+    }
 
     // //internet
     // public static getUserName(): string {
@@ -132,26 +119,9 @@ export class MockRandom {
         return randomExt.color();
     }
 
-    // //localidade
-    // public static getEstado(): string {
-    //     return casual.state
-    // }
-
-    // public static getEstadoCode(): string {
-    //     return casual.state_abbr
-    // }
-
-    // public static getCidade(): string {
-    //     return casual.city 
-    // }
-
-    // public static getRua(): string {
-    //     return casual.street
-    // }
-
-    // public static getEndereco(): string {
-    //     return this.getRua + " - Nº:" + this.getInteger(10, 90) + " - " + this.getCidade + ", " + this.getEstado + " - " + this.getEstadoCode;
-    // }
+    public static getColorName(): string {
+        return instance.cssColorName;
+    }
 
     // public static getCEP(): string {
     //     return fakerator.random.masked('999.999.999-99')
