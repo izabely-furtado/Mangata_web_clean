@@ -1,4 +1,4 @@
-import { MockRandom } from "../utils/mock-random";
+import { MockRandom } from "../../utils/mock-random";
 
 export interface Cidade {
     estado: string

@@ -1,11 +1,28 @@
-import { MockRandom } from "../utils/mock-random";
+import { MockRandom } from "app/utils/mock-random";
 
 export interface Endereco {
+    cep: string,
+    state: string,
+    city: string,
+    street: string,
+    neighborhood: string,
+    service?: string
+}
+
+export class EnderecoClass implements Endereco {
     cep:  string;
     state: string;
     city: string;
     street: string;
     neighborhood: string;
+
+    constructor(cep:  string, state: string, city: string, street: string, neighborhood: string) {
+        this.cep = cep;
+        this.state = state;
+        this.city = city;
+        this.street = street;
+        this.neighborhood = neighborhood;
+    }
 }
 
 export class EnderecoMock {

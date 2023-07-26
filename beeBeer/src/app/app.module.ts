@@ -94,6 +94,7 @@ import { TerminalComponent } from './components/terminal/terminal.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackgroundCloudsComponent } from './components/background-clouds/background-clouds.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { ImagemService } from './services/imagem.service';
 
 @NgModule({
   declarations: [
@@ -194,7 +195,10 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
     OverlayModule, 
      
   ],
-  providers: [FilterService],
+  providers: [
+    FilterService, 
+    ImagemService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

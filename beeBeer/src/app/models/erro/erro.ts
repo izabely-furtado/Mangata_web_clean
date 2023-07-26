@@ -1,4 +1,4 @@
-import { MockRandom } from "../utils/mock-random";
+import { MockRandom } from "app/utils/mock-random";
 
 export interface Erro {
     erro: string

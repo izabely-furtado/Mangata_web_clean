@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { MockRandom } from '../../utils/mock-random';
-import { EnderecoService } from 'app/services/endereco.service';
+import { Cidade } from 'app/models/endereco/cidade'; 
+import { Endereco, EnderecoClass } from 'app/models/endereco/endereco';
+import { EnderecoUtil } from 'app/utils/endereco.util';
 import cep from 'cep-promise'; //https://www.npmjs.com/package/cep-promise
-import { Cidade } from 'app/models/cidade'; //https://www.npmjs.com/package/cidades-promise
-const cidades = require('cidades-promise');
+import { ErroCEP } from 'app/models/erro/erro-cep';
+const cidades = require('cidades-promise'); //https://www.npmjs.com/package/cidades-promise
 
 @Component({
   selector: 'app-hello',
@@ -13,7 +15,7 @@ const cidades = require('cidades-promise');
 })
 export class HelloComponent {
     name = MockRandom.getSentence() + "";
-
+    cep = cep;
     formGroup!: FormGroup;
 
     categories: any[] = [
@@ -25,9 +27,8 @@ export class HelloComponent {
     cidade?: Cidade
 
     constructor(
-        private enderecoService: EnderecoService,
       ) {
-        this.getAllEstados();
+        //this.getAllEstados();
         
       }
 
@@ -35,6 +36,19 @@ export class HelloComponent {
         this.formGroup = new FormGroup({
             selectedCategory: new FormControl()
         });
+        this.getEnderecoByCEP(29171069);
+    }
+
+    getEnderecoByCEP(cepNumber: number) {
+      let retorno: Endereco = new EnderecoClass('', '', '', '', '');
+      cep(cepNumber)
+      .then((res: Endereco) => {
+          retorno = res
+          this.name = retorno.street
+      })
+      .catch((erro: ErroCEP) => {
+          window.alert(erro.errors[0].message)
+      })
     }
 
     getAllEstados(): void {
