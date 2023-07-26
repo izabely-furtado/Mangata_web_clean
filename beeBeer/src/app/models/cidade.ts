@@ -5,9 +5,19 @@ export interface Cidade {
     cidades?: string[]
 }
 
+export class CidadeClass implements Cidade {
+    estado: string;
+    cidades?: string[];
+
+    constructor(estado: string, cidades?: string[]) {
+        this.estado = estado;
+        this.cidades = cidades;
+    }
+}
+
 export class CidadeMock {
     static lista: Cidade[];
-
+    
     public static getMock(): Cidade {
         return {
             estado:  MockRandom.getLetter() + MockRandom.getLetter(),
