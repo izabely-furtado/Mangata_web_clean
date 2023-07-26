@@ -1,10 +1,10 @@
 
 import { MockRandom } from "../utils/mock-random";
-import { TipoImagem, TipoImagemMock } from "./enum/tipo-imagem";
+import { TipoImagemEnum, TipoImagemEnumMock } from "./enum/tipo-imagem.enum";
 
 export interface Imagem {
     id: number;
-    tipo: TipoImagem;  
+    tipo: TipoImagemEnum;  
     is_principal: boolean;
     largura?: number;
     altura?: number;
@@ -18,7 +18,7 @@ export class ImagemMock {
     public static getMock(): Imagem {
         return {
             id: MockRandom.getInteger(1, 99),
-            tipo: TipoImagemMock.getMock(),  
+            tipo: TipoImagemEnumMock.getMock(),  
             is_principal: MockRandom.getBoolean(),
             largura: MockRandom.getFloat(1, 99),
             altura: MockRandom.getFloat(1, 99),

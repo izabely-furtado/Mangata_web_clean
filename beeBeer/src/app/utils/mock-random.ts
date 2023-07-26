@@ -99,21 +99,21 @@ export class MockRandom {
     }
 
     // //internet
-    // public static getUserName(): string {
-    //     return fakerator.internet.userName();
-    // }
+    public static getUserName(): string {
+        return MockRandom.getName() + "_" + MockRandom.getName();
+    }
 
-    // public static getPassword(length: number) {
-    //     return fakerator.internet.password(length);
-    // }
+    public static getPassword(length: number) {
+        return MockRandom.getWord(length);
+    }
 
-    // public static getUrl(): string {
-    //     return fakerator.internet.url();
-    // }
+    public static getUrl(): string {
+        return MockRandom.getUserName() + ".com.br";
+    }
 
-    // public static getEmail(): string {
-    //     return fakerator.internet.email();
-    // }
+    public static getEmail(): string {
+        return MockRandom.getUserName() + "@email.com";
+    }
 
     public static getColor(): string {
         return randomExt.color();
