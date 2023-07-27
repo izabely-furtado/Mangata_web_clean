@@ -10,7 +10,7 @@ import { environment } from '../../enviroments/environment.prod';
 export class ImagemService {
   constructor(private http: HttpClient) {}
 
-  // Retorna todos os produtos
+  // Retorna todos
   getAllImagems(): Observable<Imagem[]> {
     if (environment.mock) {
         return of(ImagemMock.getMockArray(20));
@@ -30,7 +30,7 @@ export class ImagemService {
     }
   }
 
-  // Adiciona um novo produto
+  // Adiciona um novo
   addImagem(perfil: Imagem): Observable<Imagem> {
     if (environment.mock) {
         return of(ImagemMock.getMock());
@@ -40,7 +40,7 @@ export class ImagemService {
     }
   }
 
-  // Atualiza um produto existente
+  // Atualiza um existente
   updateImagem(perfil: Imagem): Observable<Imagem> {
     if (environment.mock) {
         return of(ImagemMock.getMock());
@@ -50,7 +50,7 @@ export class ImagemService {
     }
   }
 
-  // Remove um produto pelo ID
+  // Remove um pelo ID
   deleteImagemById(id: number): Observable<void> {
     if (environment.mock) {
         return of();

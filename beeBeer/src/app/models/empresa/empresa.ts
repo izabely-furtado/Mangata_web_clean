@@ -4,6 +4,7 @@ import { Colaborador, ColaboradorMock } from "../colaborador/colaborador";
 import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from "../enum/area-atuacao.enum";
 import { SituacaoEnum, SituacaoEnumMock } from "../enum/situacao.enum";
 import { IdentidadeVisual, IdentidadeVisualMock } from "./identidade-visual";
+import { Endereco, EnderecoMock } from "../endereco/endereco";
 
 export interface Empresa {
     id: number
@@ -17,6 +18,7 @@ export interface Empresa {
     status_licenca: SituacaoEnum
     identidade_visual?: IdentidadeVisual
     funcionarios?: Colaborador[]
+    enderecos?: Endereco[]
     
     valido?: boolean
 }
@@ -33,9 +35,10 @@ export class EmpresaMock {
             fundado_em: MockRandom.getDatePast(),
             area_atuacao: AreaAtuacaoEnumMock.getMock(),
             vende_alcool: MockRandom.getBoolean(),
+            status_licenca: SituacaoEnumMock.getMock(),
             identidade_visual: IdentidadeVisualMock.getMock(),
             funcionarios: ColaboradorMock.getMockArray(10),
-            status_licenca: SituacaoEnumMock.getMock(),
+            enderecos: EnderecoMock.getMockArray(3),
             valido: MockRandom.getBoolean()
         };
     }

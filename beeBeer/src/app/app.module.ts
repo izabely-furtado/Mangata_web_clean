@@ -95,6 +95,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BackgroundCloudsComponent } from './components/background-clouds/background-clouds.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ImagemService } from './services/imagem.service';
+import { ProdutoService } from './services/produto.service';
 
 @NgModule({
   declarations: [
@@ -197,7 +198,8 @@ import { ImagemService } from './services/imagem.service';
   ],
   providers: [
     FilterService, 
-    ImagemService
+    ImagemService,
+    ProdutoService
   ],
   bootstrap: [AppComponent]
 })
