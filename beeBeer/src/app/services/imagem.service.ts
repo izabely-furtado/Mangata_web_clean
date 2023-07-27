@@ -22,7 +22,7 @@ export class ImagemService {
     }
   }
 
-  // Retorna um produto pelo ID
+  // Retorna um pelo ID
   getImagemById(id: number): Observable<Imagem> {
     if (environment.mock) {
         return of(ImagemMock.getMock());

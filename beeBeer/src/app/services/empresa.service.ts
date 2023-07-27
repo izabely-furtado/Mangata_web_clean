@@ -63,7 +63,7 @@ export class EmpresaService {
         return of(EmpresaMock.getMockArrayByArea(20, area));
     }
     else {
-        return this.http.get<Empresa[]>(this.url);
+      return this.http.get<Empresa[]>(`${this.url}/area/${area}`);
     }
   }
 
@@ -73,7 +73,7 @@ export class EmpresaService {
         return of(EmpresaMock.getMockArrayBySituacao(20, situacao));
     }
     else {
-        return this.http.get<Empresa[]>(this.url);
+      return this.http.get<Empresa[]>(`${this.url}/situacao/${situacao}`);
     }
   }
 
