@@ -97,6 +97,8 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ImagemService } from './services/imagem.service';
 import { ProdutoService } from './services/produto.service';
 import { EmpresaService } from './services/empresa.service';
+import { ColaboradorService } from './services/colaborador.service';
+import { IngressoService } from './services/ingresso.service';
 
 @NgModule({
   declarations: [
@@ -198,10 +200,12 @@ import { EmpresaService } from './services/empresa.service';
      
   ],
   providers: [
-    FilterService, 
+    FilterService,
+    ColaboradorService,
+    EmpresaService, 
     ImagemService,
-    ProdutoService,
-    EmpresaService
+    IngressoService,
+    ProdutoService
   ],
   bootstrap: [AppComponent]
 })
