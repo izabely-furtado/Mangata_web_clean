@@ -6,6 +6,7 @@ import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from "../enum/area-atuacao.enum"
 import { Imagem, ImagemMock } from "../imagem";
 
 export interface Empresa {
+    id: number
     tipo_pessoa: TipoPessoaEnum
     cnpj?: string
     razao_social: string
@@ -25,6 +26,7 @@ export class EmpresaMock {
 
     public static getMock(): Empresa {
         return {
+            id: MockRandom.getInteger(1, 100),
             tipo_pessoa: TipoPessoaEnumMock.getMock(),
             cnpj: MockRandom.getInteger(1, 1000000) + '',
             razao_social: MockRandom.getUserName(),

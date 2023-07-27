@@ -6,6 +6,7 @@ import { SituacaoEnum, SituacaoEnumMock } from "../enum/situacao.enum";
 import { IdentidadeVisual, IdentidadeVisualMock } from "./identidade-visual";
 
 export interface Empresa {
+    id: number
     razao_social: string
     cnpj?: string
     nome_fantasia?: string
@@ -25,6 +26,7 @@ export class EmpresaMock {
 
     public static getMock(): Empresa {
         return {
+            id: MockRandom.getInteger(1, 100),
             razao_social: MockRandom.getUserName(),
             cnpj: MockRandom.getInteger(1, 1000000) + '',
             nome_fantasia: MockRandom.getUserName(),

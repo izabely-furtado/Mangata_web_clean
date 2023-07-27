@@ -6,6 +6,7 @@ import { SituacaoEnum, SituacaoEnumMock } from "../enum/situacao.enum";
 import { Imagem } from "../imagem";
 
 export interface Paleta {
+    id: number
     cor_principal: string
     cor_secundaria: string
     cor_texto: string
@@ -18,6 +19,7 @@ export class PaletaMock {
 
     public static getMock(): Paleta {
         return {
+            id: MockRandom.getInteger(1, 100),
             cor_principal: MockRandom.getColor(),
             cor_secundaria: MockRandom.getColor(),
             cor_texto: MockRandom.getColor(),

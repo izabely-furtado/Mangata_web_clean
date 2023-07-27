@@ -16,6 +16,7 @@ export interface Endereco {
 }
 
 export class EnderecoClass implements Endereco {
+    
     cep:  string;
     state: string;
     city: string;

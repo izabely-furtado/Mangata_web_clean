@@ -4,11 +4,12 @@ import { Imagem, ImagemMock } from "../imagem";
 import { Paleta, PaletaMock } from "./paleta";
 
 export interface IdentidadeVisual {
+    id: number
     logo_fundo_claro: Imagem,
     logo_fundo_escuro: Imagem,
     paleta: Paleta,
     imagens: Imagem[]
-    
+
     valido?: boolean
 }
 
@@ -17,6 +18,7 @@ export class IdentidadeVisualMock {
 
     public static getMock(): IdentidadeVisual {
         return {
+            id: MockRandom.getInteger(1, 100),
             logo_fundo_claro: ImagemMock.getMock(),
             logo_fundo_escuro: ImagemMock.getMock(),
             paleta: PaletaMock.getMock(),

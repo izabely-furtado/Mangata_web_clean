@@ -4,6 +4,7 @@ import { Login, LoginMock } from "./login";
 import { Permissao, PermissaoMock } from "./permissao";
 
 export interface Colaborador {
+    id: number;
     login: Login
     nome: string
     apelido?: string
@@ -19,6 +20,7 @@ export class ColaboradorMock {
 
     public static getMock(): Colaborador {
         return {
+            id: MockRandom.getInteger(1, 100),
             login: LoginMock.getMock(),
             nome: MockRandom.getUserName(),
             apelido: MockRandom.getUserName(),

@@ -4,7 +4,8 @@ import { Imagem, ImagemMock } from "../imagem";
 import { TipoProdutoEnum, TipoProdutoEnumMock } from "../enum/tipo-produto";
 
 export interface Produto {
-    tipo_produto: TipoProdutoEnum
+    id: number
+    tipo: TipoProdutoEnum
     nome: string
     descricao?: string
     venda_pelo_app: boolean
@@ -22,7 +23,8 @@ export class ProdutoMock {
 
     public static getMock(): Produto {
         return {
-            tipo_produto: TipoProdutoEnumMock.getMock(),
+            id: MockRandom.getInteger(1, 100),
+            tipo: TipoProdutoEnumMock.getMock(),
             nome: MockRandom.getUserName(),
             descricao: MockRandom.getWord(10),
             venda_pelo_app: MockRandom.getBoolean(),
