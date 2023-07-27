@@ -12,6 +12,9 @@ import { Brinde, BrindeMock } from 'app/models/produto/brinde';
   providedIn: 'root',
 })
 export class ProdutoService {
+
+  url = environment.apiUrl + '/produto';
+
   constructor(private http: HttpClient) {}
 
   // Retorna todos
@@ -20,7 +23,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMockArray(20));
     }
     else {
-        return this.http.get<Produto[]>(environment.apiUrl);
+        return this.http.get<Produto[]>(this.url);
     }
   }
 
@@ -30,7 +33,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMock());
     }
     else {
-        return this.http.get<Produto>(`${environment.apiUrl}/${id}`);
+        return this.http.get<Produto>(`${this.url}/${id}`);
     }
   }
 
@@ -40,7 +43,7 @@ export class ProdutoService {
       return of(ProdutoMock.getMockArrayByTipo(20, tipo));
     }
     else {
-      return this.http.get<Produto[]>(`${environment.apiUrl}/tipo/${tipo}`);
+      return this.http.get<Produto[]>(`${this.url}/tipo/${tipo}`);
     }
   }  
 
@@ -50,7 +53,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMock());
     }
     else {
-        return this.http.post<Produto>(environment.apiUrl, perfil);
+        return this.http.post<Produto>(this.url, perfil);
     }
   }
 
@@ -60,7 +63,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMock());
     }
     else {
-        return this.http.put<Produto>(`${environment.apiUrl}/${perfil.id}`, perfil);
+        return this.http.put<Produto>(`${this.url}/${perfil.id}`, perfil);
     }
   }
 
@@ -70,7 +73,7 @@ export class ProdutoService {
         return of();
     }
     else {
-        return this.http.delete<void>(`${environment.apiUrl}/${id}`);
+        return this.http.delete<void>(`${this.url}/${id}`);
     }
   }
 
@@ -82,7 +85,7 @@ export class ProdutoService {
         return of(BebidaMock.getMock());
     }
     else {
-        return this.http.get<Bebida>(`${environment.apiUrl}/bebida/${id}`);
+        return this.http.get<Bebida>(`${this.url}/bebida/${id}`);
     }
   }
 
@@ -97,7 +100,7 @@ export class ProdutoService {
         return of(BebidaMock.getMockArray(20));
     }
     else {
-      return this.http.get<Bebida[]>(`${environment.apiUrl}/bebida`);
+      return this.http.get<Bebida[]>(`${this.url}/bebida`);
     }
   }
 
@@ -107,7 +110,7 @@ export class ProdutoService {
         return of(BebidaMock.getMock());
     }
     else {
-        return this.http.post<Bebida>(`${environment.apiUrl}/bebida`, bebida);
+        return this.http.post<Bebida>(`${this.url}/bebida`, bebida);
     }
   }
 
@@ -117,7 +120,7 @@ export class ProdutoService {
         return of(BebidaMock.getMock());
     }
     else {
-        return this.http.put<Bebida>(`${environment.apiUrl}/bebida/${bebida.produto.id}`, bebida);
+        return this.http.put<Bebida>(`${this.url}/bebida/${bebida.produto.id}`, bebida);
     }
   }
 
@@ -127,7 +130,7 @@ export class ProdutoService {
         return of();
     }
     else {
-        return this.http.delete<void>(`${environment.apiUrl}/bebida/${id}`);
+        return this.http.delete<void>(`${this.url}/bebida/${id}`);
     }
   }
 
@@ -138,7 +141,7 @@ export class ProdutoService {
         return of(ComidaMock.getMock());
     }
     else {
-        return this.http.get<Comida>(`${environment.apiUrl}/comida/${id}`);
+        return this.http.get<Comida>(`${this.url}/comida/${id}`);
     }
   }
 
@@ -153,7 +156,7 @@ export class ProdutoService {
         return of(ComidaMock.getMockArray(20));
     }
     else {
-      return this.http.get<Comida[]>(`${environment.apiUrl}/comida`);
+      return this.http.get<Comida[]>(`${this.url}/comida`);
     }
   }
 
@@ -163,7 +166,7 @@ export class ProdutoService {
         return of(ComidaMock.getMock());
     }
     else {
-        return this.http.post<Comida>(`${environment.apiUrl}/comida`, comida);
+        return this.http.post<Comida>(`${this.url}/comida`, comida);
     }
   }
 
@@ -173,7 +176,7 @@ export class ProdutoService {
         return of(ComidaMock.getMock());
     }
     else {
-        return this.http.put<Comida>(`${environment.apiUrl}/comida/${comida.produto.id}`, comida);
+        return this.http.put<Comida>(`${this.url}/comida/${comida.produto.id}`, comida);
     }
   }
 
@@ -183,7 +186,7 @@ export class ProdutoService {
         return of();
     }
     else {
-        return this.http.delete<void>(`${environment.apiUrl}/comida/${id}`);
+        return this.http.delete<void>(`${this.url}/comida/${id}`);
     }
   }
 
@@ -194,7 +197,7 @@ export class ProdutoService {
         return of(BrindeMock.getMock());
     }
     else {
-        return this.http.get<Brinde>(`${environment.apiUrl}/brinde/${id}`);
+        return this.http.get<Brinde>(`${this.url}/brinde/${id}`);
     }
   }
 
@@ -209,7 +212,7 @@ export class ProdutoService {
         return of(BrindeMock.getMockArray(20));
     }
     else {
-      return this.http.get<Brinde[]>(`${environment.apiUrl}/brinde`);
+      return this.http.get<Brinde[]>(`${this.url}/brinde`);
     }
   }
 
@@ -219,7 +222,7 @@ export class ProdutoService {
         return of(BrindeMock.getMock());
     }
     else {
-        return this.http.post<Brinde>(`${environment.apiUrl}/brinde`, brinde);
+        return this.http.post<Brinde>(`${this.url}/brinde`, brinde);
     }
   }
 
@@ -229,7 +232,7 @@ export class ProdutoService {
         return of(BrindeMock.getMock());
     }
     else {
-        return this.http.put<Brinde>(`${environment.apiUrl}/brinde/${brinde.produto.id}`, brinde);
+        return this.http.put<Brinde>(`${this.url}/brinde/${brinde.produto.id}`, brinde);
     }
   }
 
@@ -239,7 +242,7 @@ export class ProdutoService {
         return of();
     }
     else {
-        return this.http.delete<void>(`${environment.apiUrl}/brinde/${id}`);
+        return this.http.delete<void>(`${this.url}/brinde/${id}`);
     }
   }
 
@@ -255,7 +258,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMockArray(20));
     }
     else {
-      return this.http.get<Produto[]>(`${environment.apiUrl}/outro`);
+      return this.http.get<Produto[]>(`${this.url}/outro`);
     }
   }
 
@@ -265,7 +268,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMock());
     }
     else {
-        return this.http.post<Produto>(`${environment.apiUrl}/outro`, produto);
+        return this.http.post<Produto>(`${this.url}/outro`, produto);
     }
   }
 
@@ -275,7 +278,7 @@ export class ProdutoService {
         return of(ProdutoMock.getMock());
     }
     else {
-        return this.http.put<Produto>(`${environment.apiUrl}/outro/${produto.id}`, produto);
+        return this.http.put<Produto>(`${this.url}/outro/${produto.id}`, produto);
     }
   }
 
@@ -285,7 +288,7 @@ export class ProdutoService {
         return of();
     }
     else {
-        return this.http.delete<void>(`${environment.apiUrl}/outro/${id}`);
+        return this.http.delete<void>(`${this.url}/outro/${id}`);
     }
   }
   

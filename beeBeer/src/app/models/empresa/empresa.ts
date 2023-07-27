@@ -43,6 +43,40 @@ export class EmpresaMock {
         };
     }
 
+    public static getMockBySituacao(situacao: SituacaoEnum): Empresa {
+        return {
+            id: MockRandom.getInteger(1, 100),
+            razao_social: MockRandom.getUserName(),
+            cnpj: MockRandom.getInteger(1, 1000000) + '',
+            nome_fantasia: MockRandom.getUserName(),
+            fundado_em: MockRandom.getDatePast(),
+            area_atuacao: AreaAtuacaoEnumMock.getMock(),
+            vende_alcool: MockRandom.getBoolean(),
+            status_licenca: situacao,
+            identidade_visual: IdentidadeVisualMock.getMock(),
+            funcionarios: ColaboradorMock.getMockArray(10),
+            enderecos: EnderecoMock.getMockArray(3),
+            valido: MockRandom.getBoolean()
+        };
+    }
+
+    public static getMockByArea(area: AreaAtuacaoEnum): Empresa {
+        return {
+            id: MockRandom.getInteger(1, 100),
+            razao_social: MockRandom.getUserName(),
+            cnpj: MockRandom.getInteger(1, 1000000) + '',
+            nome_fantasia: MockRandom.getUserName(),
+            fundado_em: MockRandom.getDatePast(),
+            area_atuacao: area,
+            vende_alcool: MockRandom.getBoolean(),
+            status_licenca: SituacaoEnumMock.getMock(),
+            identidade_visual: IdentidadeVisualMock.getMock(),
+            funcionarios: ColaboradorMock.getMockArray(10),
+            enderecos: EnderecoMock.getMockArray(3),
+            valido: MockRandom.getBoolean()
+        };
+    }
+
     public static getMockArray(quantidade : number) : Empresa[]{
         this.lista = [];
         for (let i = 0; i < quantidade; i++) {
@@ -50,4 +84,22 @@ export class EmpresaMock {
           }
         return this.lista;
     }
+
+    public static getMockArrayByArea(quantidade : number, area: AreaAtuacaoEnum) : Empresa[]{
+        this.lista = [];
+        for (let i = 0; i < quantidade; i++) {
+            this.lista.push(EmpresaMock.getMockByArea(area));
+          }
+        return this.lista;
+    }
+
+    public static getMockArrayBySituacao(quantidade : number, situacao: SituacaoEnum) : Empresa[]{
+        this.lista = [];
+        for (let i = 0; i < quantidade; i++) {
+            this.lista.push(EmpresaMock.getMockBySituacao(situacao));
+          }
+        return this.lista;
+    }
+
+    
 }

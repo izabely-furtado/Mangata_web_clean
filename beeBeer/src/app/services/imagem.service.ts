@@ -8,6 +8,8 @@ import { environment } from '../../enviroments/environment.prod';
   providedIn: 'root',
 })
 export class ImagemService {
+  url = environment.apiUrl + '/imagem';
+
   constructor(private http: HttpClient) {}
 
   // Retorna todos
@@ -16,7 +18,7 @@ export class ImagemService {
         return of(ImagemMock.getMockArray(20));
     }
     else {
-        return this.http.get<Imagem[]>(environment.apiUrl);
+        return this.http.get<Imagem[]>(this.url);
     }
   }
 
@@ -26,7 +28,7 @@ export class ImagemService {
         return of(ImagemMock.getMock());
     }
     else {
-        return this.http.get<Imagem>(`${environment.apiUrl}/${id}`);
+        return this.http.get<Imagem>(`${this.url}/${id}`);
     }
   }
 
@@ -36,7 +38,7 @@ export class ImagemService {
         return of(ImagemMock.getMock());
     }
     else {
-        return this.http.post<Imagem>(environment.apiUrl, perfil);
+        return this.http.post<Imagem>(this.url, perfil);
     }
   }
 
@@ -46,7 +48,7 @@ export class ImagemService {
         return of(ImagemMock.getMock());
     }
     else {
-        return this.http.put<Imagem>(`${environment.apiUrl}/${perfil.id}`, perfil);
+        return this.http.put<Imagem>(`${this.url}/${perfil.id}`, perfil);
     }
   }
 
@@ -56,7 +58,7 @@ export class ImagemService {
         return of();
     }
     else {
-        return this.http.delete<void>(`${environment.apiUrl}/${id}`);
+        return this.http.delete<void>(`${this.url}/${id}`);
     }
   }
 
