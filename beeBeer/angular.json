@@ -83,7 +83,7 @@
               "browserTarget": "beeBeer:build:mock"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "mock"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
