@@ -96,6 +96,7 @@ import { BackgroundCloudsComponent } from './components/background-clouds/backgr
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ImagemService } from './services/imagem.service';
 import { ProdutoService } from './services/produto.service';
+import { EmpresaService } from './services/empresa.service';
 
 @NgModule({
   declarations: [
@@ -199,7 +200,8 @@ import { ProdutoService } from './services/produto.service';
   providers: [
     FilterService, 
     ImagemService,
-    ProdutoService
+    ProdutoService,
+    EmpresaService
   ],
   bootstrap: [AppComponent]
 })

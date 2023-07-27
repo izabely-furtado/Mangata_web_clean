@@ -5,6 +5,9 @@ import { Empresa, EmpresaMock } from '../models/empresa/empresa';
 import { environment } from '../../enviroments/environment.prod';
 import { AreaAtuacaoEnum } from 'app/models/enum/area-atuacao.enum';
 import { SituacaoEnum } from 'app/models/enum/situacao.enum';
+import { Parceiro, ParceiroMock } from 'app/models/empresa/parceiro';
+import { Colaborador, ColaboradorMock } from 'app/models/colaborador/colaborador';
+import { Endereco, EnderecoMock } from 'app/models/endereco/endereco';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +24,36 @@ export class EmpresaService {
     }
     else {
         return this.http.get<Empresa[]>(this.url);
+    }
+  }
+
+  // Retorna todos
+  getAllParceiros(id: number): Observable<Parceiro[]> {
+    if (environment.mock) {
+        return of(ParceiroMock.getMockArray(20));
+    }
+    else {
+      return this.http.get<Parceiro[]>(`${this.url}/parceiro/${id}`);
+    }
+  }
+
+  // Retorna todos
+  getAllColaboradores(id: number): Observable<Colaborador[]> {
+    if (environment.mock) {
+        return of(ColaboradorMock.getMockArray(20));
+    }
+    else {
+      return this.http.get<Colaborador[]>(`${this.url}/colaborador/${id}`);
+    }
+  }
+
+  // Retorna todos
+  getAllEnderecos(id: number): Observable<Endereco[]> {
+    if (environment.mock) {
+        return of(EnderecoMock.getMockArray(20));
+    }
+    else {
+      return this.http.get<Endereco[]>(`${this.url}/endereco/${id}`);
     }
   }
 
@@ -55,22 +88,22 @@ export class EmpresaService {
   }
 
   // Adiciona um novo
-  addEmpresa(perfil: Empresa): Observable<Empresa> {
+  addEmpresa(empresa: Empresa): Observable<Empresa> {
     if (environment.mock) {
         return of(EmpresaMock.getMock());
     }
     else {
-        return this.http.post<Empresa>(this.url, perfil);
+        return this.http.post<Empresa>(this.url, empresa);
     }
   }
 
   // Atualiza um existente
-  updateEmpresa(perfil: Empresa): Observable<Empresa> {
+  updateEmpresa(empresa: Empresa): Observable<Empresa> {
     if (environment.mock) {
         return of(EmpresaMock.getMock());
     }
     else {
-        return this.http.put<Empresa>(`${this.url}/${perfil.id}`, perfil);
+        return this.http.put<Empresa>(`${this.url}/${empresa.id}`, empresa);
     }
   }
 

@@ -5,7 +5,7 @@ import { Login, LoginMock } from "../colaborador/login";
 import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from "../enum/area-atuacao.enum";
 import { Imagem, ImagemMock } from "../imagem";
 
-export interface Empresa {
+export interface Parceiro {
     id: number
     tipo_pessoa: TipoPessoaEnum
     cnpj?: string
@@ -21,10 +21,10 @@ export interface Empresa {
     valido?: boolean
 }
 
-export class EmpresaMock {
-    static lista: Empresa[];
+export class ParceiroMock {
+    static lista: Parceiro[];
 
-    public static getMock(): Empresa {
+    public static getMock(): Parceiro {
         return {
             id: MockRandom.getInteger(1, 100),
             tipo_pessoa: TipoPessoaEnumMock.getMock(),
@@ -40,10 +40,10 @@ export class EmpresaMock {
         };
     }
 
-    public static getMockArray(quantidade : number) : Empresa[]{
+    public static getMockArray(quantidade : number) : Parceiro[]{
         this.lista = [];
         for (let i = 0; i < quantidade; i++) {
-            this.lista.push(EmpresaMock.getMock());
+            this.lista.push(ParceiroMock.getMock());
           }
         return this.lista;
     }

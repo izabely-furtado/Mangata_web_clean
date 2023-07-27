@@ -5,6 +5,7 @@ import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from "../enum/area-atuacao.enum"
 import { SituacaoEnum, SituacaoEnumMock } from "../enum/situacao.enum";
 import { IdentidadeVisual, IdentidadeVisualMock } from "./identidade-visual";
 import { Endereco, EnderecoMock } from "../endereco/endereco";
+import { Parceiro } from "./parceiro";
 
 export interface Empresa {
     id: number
@@ -19,6 +20,7 @@ export interface Empresa {
     identidade_visual?: IdentidadeVisual
     funcionarios?: Colaborador[]
     enderecos?: Endereco[]
+    parceiros?: Parceiro[]
     
     valido?: boolean
 }
