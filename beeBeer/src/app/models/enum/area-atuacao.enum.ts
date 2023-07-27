@@ -9,6 +9,7 @@ export enum AreaAtuacaoEnum {
     cinema = 'Cinema',
     standup = 'Standup',
     projeto = 'Projeto',
+    fornecedor = 'Fornecedor'
 }
   
 
@@ -23,7 +24,8 @@ export class AreaAtuacaoEnumMock {
                    AreaAtuacaoEnum.teatro,
                    AreaAtuacaoEnum.cinema,
                    AreaAtuacaoEnum.standup,
-                   AreaAtuacaoEnum.projeto
+                   AreaAtuacaoEnum.projeto,
+                   AreaAtuacaoEnum.fornecedor
                 ];
 
     public static getMock(): AreaAtuacaoEnum {

@@ -13,9 +13,10 @@ export interface Empresa {
     area_atuacao?: AreaAtuacaoEnum
     vende_alcool: boolean
     licenca_venda_alcool?: File | HTMLImageElement | string
+    status_licenca: SituacaoEnum
     identidade_visual?: IdentidadeVisual
     funcionarios?: Colaborador[]
-    status_licenca: SituacaoEnum
+    
     valido?: boolean
 }
 

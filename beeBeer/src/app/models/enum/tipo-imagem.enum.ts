@@ -5,6 +5,7 @@ export enum TipoImagemEnum {
     banner = 'Banner',
     instagram = 'Instagram',
     perfil = 'Perfil',
+    produto = 'Produto'
 }
   
 
@@ -15,7 +16,8 @@ export class TipoImagemEnumMock {
                    TipoImagemEnum.logo_fundo_claro, 
                    TipoImagemEnum.banner, 
                    TipoImagemEnum.instagram,
-                   TipoImagemEnum.perfil
+                   TipoImagemEnum.perfil,
+                   TipoImagemEnum.produto
                 ];
 
     public static getMock(): TipoImagemEnum {

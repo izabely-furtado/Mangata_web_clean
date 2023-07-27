@@ -8,6 +8,7 @@ export interface IdentidadeVisual {
     logo_fundo_escuro: Imagem,
     paleta: Paleta,
     imagens: Imagem[]
+    
     valido?: boolean
 }
 

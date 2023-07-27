@@ -7,6 +7,12 @@ export interface Endereco {
     street: string,
     neighborhood: string,
     service?: string
+    numero?: number
+    complemento?: string
+    e_principal?: boolean
+    link_maps?: string
+    //mapa do local numa proxima versao
+    valido?: boolean
 }
 
 export class EnderecoClass implements Endereco {

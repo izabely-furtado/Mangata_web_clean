@@ -11,6 +11,7 @@ export interface Colaborador {
     nascimento: Date
     permissoes: Permissao[]
     valido?: boolean
+    pix?: string
 }
 
 export class ColaboradorMock {
