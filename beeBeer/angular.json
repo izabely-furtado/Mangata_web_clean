@@ -68,7 +68,7 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "mock"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",

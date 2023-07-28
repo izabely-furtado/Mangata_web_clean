@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Colaborador, ColaboradorMock } from '../models/colaborador/colaborador';
-import { environment } from '../../enviroments/environment.prod';
+import { environment } from '../../enviroments/environment';
 import { Permissao, PermissaoMock } from 'app/models/colaborador/permissao';
 
 @Injectable({

@@ -11,21 +11,24 @@ export enum TipoImagemEnum {
 
 var randomExt = require("random-ext");
 export class TipoImagemEnumMock {
-    static lista: [TipoImagemEnum.logo, 
-                   TipoImagemEnum.logo_fundo_escuro, 
-                   TipoImagemEnum.logo_fundo_claro, 
-                   TipoImagemEnum.banner, 
-                   TipoImagemEnum.instagram,
-                   TipoImagemEnum.perfil,
-                   TipoImagemEnum.produto
-                ];
-
     public static getMock(): TipoImagemEnum {
-        return TipoImagemEnumMock.lista[randomExt.integer(6, 1)];
+        const randomIndex = Math.floor(Math.random() * this.getLista().length);
+        return this.getLista()[randomIndex];
     }
 
     public static getMockArray(): TipoImagemEnum[] {
-        return TipoImagemEnumMock.lista;
+        return TipoImagemEnumMock.getLista();
+    }
+
+    public static getLista(): TipoImagemEnum[] {
+        return [TipoImagemEnum.logo, 
+            TipoImagemEnum.logo_fundo_escuro, 
+            TipoImagemEnum.logo_fundo_claro, 
+            TipoImagemEnum.banner, 
+            TipoImagemEnum.instagram,
+            TipoImagemEnum.perfil,
+            TipoImagemEnum.produto
+         ];
     }
                 
 }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Empresa, EmpresaMock } from '../models/empresa/empresa';
-import { environment } from '../../enviroments/environment.prod';
+import { environment } from '../../enviroments/environment';
 import { AreaAtuacaoEnum } from 'app/models/enum/area-atuacao.enum';
 import { SituacaoEnum } from 'app/models/enum/situacao.enum';
 import { Parceiro, ParceiroMock } from 'app/models/empresa/parceiro';

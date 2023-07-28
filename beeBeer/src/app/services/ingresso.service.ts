@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Ingresso, IngressoMock } from '../models/ingresso/ingresso';
-import { environment } from '../../enviroments/environment.prod';
+import { environment } from '../../enviroments/environment';
 
 @Injectable({
   providedIn: 'root',

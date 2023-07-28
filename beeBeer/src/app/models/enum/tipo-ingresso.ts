@@ -9,19 +9,22 @@ export enum TipoIngressoEnum {
 
 var randomExt = require("random-ext");
 export class TipoIngressoEnumMock {
-    static lista: [TipoIngressoEnum.normal, 
-                   TipoIngressoEnum.meia,
-                   TipoIngressoEnum.solidaria,
-                   TipoIngressoEnum.vip,
-                   TipoIngressoEnum.gratuito
-                ];
-
     public static getMock(): TipoIngressoEnum {
-        return TipoIngressoEnumMock.lista[randomExt.integer(6, 1)];
+        const randomIndex = Math.floor(Math.random() * this.getLista().length);
+        return this.getLista()[randomIndex];
     }
 
     public static getMockArray(): TipoIngressoEnum[] {
-        return TipoIngressoEnumMock.lista;
+        return TipoIngressoEnumMock.getLista();
+    }
+
+    public static getLista(): TipoIngressoEnum[] {
+        return [TipoIngressoEnum.normal, 
+            TipoIngressoEnum.meia,
+            TipoIngressoEnum.solidaria,
+            TipoIngressoEnum.vip,
+            TipoIngressoEnum.gratuito
+         ];
     }
                 
 }

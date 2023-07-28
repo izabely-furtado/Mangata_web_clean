@@ -6,16 +6,19 @@ export enum TipoDescontoEnum {
 
 var randomExt = require("random-ext");
 export class TipoDescontoEnumMock {
-    static lista: [TipoDescontoEnum.porcentagem, 
-                   TipoDescontoEnum.valor
-                ];
-
     public static getMock(): TipoDescontoEnum {
-        return TipoDescontoEnumMock.lista[randomExt.integer(6, 1)];
+        const randomIndex = Math.floor(Math.random() * this.getLista().length);
+        return this.getLista()[randomIndex];
     }
 
     public static getMockArray(): TipoDescontoEnum[] {
-        return TipoDescontoEnumMock.lista;
+        return TipoDescontoEnumMock.getLista();
+    }
+
+    public static getLista(): TipoDescontoEnum[] {
+        return [TipoDescontoEnum.porcentagem, 
+            TipoDescontoEnum.valor
+         ];
     }
                 
 }

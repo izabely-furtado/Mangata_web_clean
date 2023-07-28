@@ -88,7 +88,7 @@ import { RippleModule } from 'primeng/ripple';
 import { AutoFocusModule } from 'primeng/autofocus';
 import { AnimateModule } from 'primeng/animate';
 import { OverlayModule } from 'primeng/overlay';
-import { FilterService } from 'primeng/api';
+import { ConfirmationService, FilterService, MessageService } from 'primeng/api';
 import { MenuPrincipalComponent } from './components/menu-principal/menu-principal.component';
 import { TerminalComponent } from './components/terminal/terminal.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -99,6 +99,10 @@ import { ProdutoService } from './services/produto.service';
 import { EmpresaService } from './services/empresa.service';
 import { ColaboradorService } from './services/colaborador.service';
 import { IngressoService } from './services/ingresso.service';
+import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
+import { CadastroComponent } from './pages/cadastro/cadastro.component';
+import { TipoProdutoEnumMock } from './models/enum/tipo-produto';
+import { ProdutoComponent } from './pages/produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -106,10 +110,13 @@ import { IngressoService } from './services/ingresso.service';
     HelloComponent,
     GoodbyeComponent,
     MenuPrincipalComponent,
+    MenuLateralComponent,
     TerminalComponent,
     FooterComponent,
     BackgroundCloudsComponent,
-    PerfilComponent
+    PerfilComponent,
+    CadastroComponent,
+    ProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -201,11 +208,13 @@ import { IngressoService } from './services/ingresso.service';
   ],
   providers: [
     FilterService,
+    MessageService, 
+    ConfirmationService,
     ColaboradorService,
     EmpresaService, 
     ImagemService,
     IngressoService,
-    ProdutoService
+    ProdutoService,
   ],
   bootstrap: [AppComponent]
 })

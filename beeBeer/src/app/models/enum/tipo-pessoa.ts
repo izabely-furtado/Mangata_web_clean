@@ -6,16 +6,19 @@ export enum TipoPessoaEnum {
 
 var randomExt = require("random-ext");
 export class TipoPessoaEnumMock {
-    static lista: [TipoPessoaEnum.fisica, 
-                   TipoPessoaEnum.juridica
-                ];
-
     public static getMock(): TipoPessoaEnum {
-        return TipoPessoaEnumMock.lista[randomExt.integer(6, 1)];
+        const randomIndex = Math.floor(Math.random() * this.getLista().length);
+        return this.getLista()[randomIndex];
     }
 
     public static getMockArray(): TipoPessoaEnum[] {
-        return TipoPessoaEnumMock.lista;
+        return TipoPessoaEnumMock.getLista();
+    }
+
+    public static getLista(): TipoPessoaEnum[] {
+        return [TipoPessoaEnum.fisica, 
+            TipoPessoaEnum.juridica
+         ];
     }
                 
 }

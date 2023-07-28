@@ -48,7 +48,7 @@ export class MenuPrincipalComponent {
             {
                 label: 'Cadastros',
                 icon: './assets/images/3D-Icons/32.png',
-                url: './cadastros',
+                url: './cadastro',
                 target: '_self'
             },
             {

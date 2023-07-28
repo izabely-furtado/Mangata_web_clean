@@ -10,20 +10,23 @@ export enum SituacaoEnum {
 
 var randomExt = require("random-ext");
 export class SituacaoEnumMock {
-    static lista: [SituacaoEnum.nao_iniciado,
-                   SituacaoEnum.em_analise, 
-                   SituacaoEnum.processando, 
-                   SituacaoEnum.pendente, 
-                   SituacaoEnum.aprovado, 
-                   SituacaoEnum.reprovado
-                ];
-
     public static getMock(): SituacaoEnum {
-        return SituacaoEnumMock.lista[randomExt.integer(6, 1)];
+        const randomIndex = Math.floor(Math.random() * this.getLista().length);
+        return this.getLista()[randomIndex];
     }
 
     public static getMockArray(): SituacaoEnum[] {
-        return SituacaoEnumMock.lista;
+        return SituacaoEnumMock.getLista();
+    }
+
+    public static getLista(): SituacaoEnum[] {
+        return [SituacaoEnum.nao_iniciado,
+            SituacaoEnum.em_analise, 
+            SituacaoEnum.processando, 
+            SituacaoEnum.pendente, 
+            SituacaoEnum.aprovado, 
+            SituacaoEnum.reprovado
+         ];
     }
                 
 }

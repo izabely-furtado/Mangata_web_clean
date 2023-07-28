@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { environment } from '../../enviroments/environment.prod';
+import { environment } from '../../enviroments/environment';
 import { Produto, ProdutoMock } from 'app/models/produto/produto';
 import { TipoProdutoEnum } from 'app/models/enum/tipo-produto';
 import { Bebida, BebidaMock } from 'app/models/produto/bebida';
@@ -19,6 +19,7 @@ export class ProdutoService {
 
   // Retorna todos
   getAllProdutos(): Observable<Produto[]> {
+    debugger
     if (environment.mock) {
         return of(ProdutoMock.getMockArray(20));
     }

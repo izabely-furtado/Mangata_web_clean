@@ -14,24 +14,27 @@ export enum TipoPermissaoEnum {
 
 var randomExt = require("random-ext");
 export class TipoPermissaoEnumMock {
-    static lista: [TipoPermissaoEnum.administrativo, 
-                   TipoPermissaoEnum.venda, 
-                   TipoPermissaoEnum.cadastro, 
-                   TipoPermissaoEnum.cancelamento, 
-                   TipoPermissaoEnum.exclusao,
-                   TipoPermissaoEnum.rh,
-                   TipoPermissaoEnum.ingressos,
-                   TipoPermissaoEnum.eventos,
-                   TipoPermissaoEnum.musical,
-                   TipoPermissaoEnum.influencer
-                ];
-
     public static getMock(): TipoPermissaoEnum {
-        return TipoPermissaoEnumMock.lista[randomExt.integer(6, 1)];
+        const randomIndex = Math.floor(Math.random() * this.getLista().length);
+        return this.getLista()[randomIndex];
     }
 
     public static getMockArray(): TipoPermissaoEnum[] {
-        return TipoPermissaoEnumMock.lista;
+        return TipoPermissaoEnumMock.getLista();
+    }
+
+    public static getLista(): TipoPermissaoEnum[] {
+        return [TipoPermissaoEnum.administrativo, 
+            TipoPermissaoEnum.venda, 
+            TipoPermissaoEnum.cadastro, 
+            TipoPermissaoEnum.cancelamento, 
+            TipoPermissaoEnum.exclusao,
+            TipoPermissaoEnum.rh,
+            TipoPermissaoEnum.ingressos,
+            TipoPermissaoEnum.eventos,
+            TipoPermissaoEnum.musical,
+            TipoPermissaoEnum.influencer
+         ];
     }
                 
 }
