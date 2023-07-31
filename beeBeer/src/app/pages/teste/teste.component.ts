@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
-import { SituacaoProdutoEnum, SituacaoProdutoEnumMock } from 'app/models/enum/situacao-produto.enum';
 import { Produto } from 'app/models/produto/produto';
 import { ProdutoService } from 'app/services/produto.service';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.scss']
+  selector: 'app-teste',
+  templateUrl: './teste.component.html',
+  styleUrls: ['./teste.component.scss']
 })
 export class ProdutoComponent {
   name = 'Jane';
@@ -28,7 +27,7 @@ export class ProdutoComponent {
 
   submitted: boolean = false;
 
-  statuses: SituacaoProdutoEnum[] = SituacaoProdutoEnumMock.getMockArray();
+  statuses!: any[];
 
   ////
 
@@ -43,7 +42,11 @@ export class ProdutoComponent {
 
     ///.then((data) => (this.products = data));
 
-    
+    this.statuses = [
+      { label: 'INSTOCK', value: 'instock' },
+      { label: 'LOWSTOCK', value: 'lowstock' },
+      { label: 'OUTOFSTOCK', value: 'outofstock' }
+    ];
   }
 
   openNew() {
@@ -141,14 +144,13 @@ export class ProdutoComponent {
     return id;
   }
 
-  getSeverity(status: SituacaoProdutoEnum) {
-    debugger
+  getSeverity(status: string) {
     switch (status) {
-      case SituacaoProdutoEnum.em_estoque:
+      case 'INSTOCK':
         return 'success';
-      case SituacaoProdutoEnum.baixo_estoque:
+      case 'LOWSTOCK':
         return 'warning';
-      case SituacaoProdutoEnum.fora_estoque:
+      case 'OUTOFSTOCK':
         return 'danger';
     }
   }

@@ -1,6 +1,6 @@
 
 import { MockRandom } from "app/utils/mock-random";
-import { TipoIngressoEnum, TipoIngressoEnumMock } from "../enum/tipo-ingresso";
+import { TipoIngressoEnum, TipoIngressoEnumMock } from "../enum/tipo-ingresso.enum";
 import { Regra, RegraMock } from "../regra";
 
 export interface Ingresso {

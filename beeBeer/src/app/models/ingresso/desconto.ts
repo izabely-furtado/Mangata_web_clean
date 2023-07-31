@@ -1,6 +1,6 @@
 
 import { MockRandom } from "app/utils/mock-random";
-import { TipoDescontoEnum, TipoDescontoEnumMock } from "../enum/tipo-desconto";
+import { TipoDescontoEnum, TipoDescontoEnumMock } from "../enum/tipo-desconto.enum";
 
 export interface Desconto {
     tipo: TipoDescontoEnum

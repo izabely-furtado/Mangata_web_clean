@@ -1,32 +1,24 @@
 
 import { MockRandom } from "app/utils/mock-random";
 import { Imagem, ImagemMock } from "../imagem";
-import { TipoProdutoEnum, TipoProdutoEnumMock } from "../enum/tipo-produto";
+import { TipoProdutoEnum, TipoProdutoEnumMock } from "../enum/tipo-produto.enum";
+import { SituacaoProdutoEnum, SituacaoProdutoEnumMock } from "../enum/situacao-produto.enum";
 
 export interface Produto {
-    //id: number
+    id: string //decidir depois se vai virar number
     tipo: TipoProdutoEnum
     nome: string
     descricao?: string
     venda_pelo_app: boolean
     quantidade: number
-    valor: number
+    quantidade_vendidos?: number
+    preco: number
     imagens: Imagem[]
+    imagem_principal?: string //decidir se fica depois
+    situacao_produto: SituacaoProdutoEnum
     //onde_comprar    esses dois serão numa proxima versão, 
     //onde_recuperar  quando existir mapa do local
 
-    ///temporarios para analise
-    id: string
-    code: number
-    name: string
-    description: string
-    image: string
-    price: number
-    category: string//'Accessories',
-    quantity: number
-    inventoryStatus: string//'INSTOCK',
-    rating: number
-    /////////
     valido?: boolean
 }
 
@@ -34,52 +26,35 @@ export class ProdutoMock {
     static lista: Produto[];
 
     public static getMock(): Produto {
+        let quantidade_var = MockRandom.getInteger(1,10)
         return {
-            // id: MockRandom.getInteger(1, 100),
+             id: MockRandom.getInteger(1, 100) + '',
              tipo: TipoProdutoEnumMock.getMock(),
              nome: MockRandom.getUserName(),
              descricao: MockRandom.getWord(10),
              venda_pelo_app: MockRandom.getBoolean(),
-             quantidade: MockRandom.getInteger(1,10),
-             valor: MockRandom.getFloat(1,10),
+             quantidade: quantidade_var,
+             preco: MockRandom.getFloat(1,10),
              imagens: ImagemMock.getMockArray(2),
              valido: MockRandom.getBoolean(),
-
-            id: MockRandom.getInteger(1, 100) + '',
-            code: MockRandom.getInteger(1, 100),
-            name: MockRandom.getUserName(),
-            description: MockRandom.getUserName(),
-            image: MockRandom.getUserName(),
-            price: MockRandom.getFloat(1, 100),
-            category: 'Accessories',
-            quantity: MockRandom.getInteger(1, 100),
-            inventoryStatus: 'INSTOCK',
-            rating: MockRandom.getInteger(1, 5)
+             situacao_produto: SituacaoProdutoEnumMock.getMock(),
+             quantidade_vendidos: 100 - quantidade_var,
+             imagem_principal: quantidade_var + '.jpg'
         };
     }
 
     public static getMockByTipo(tipo: TipoProdutoEnum): Produto {
         return {
-           // id: MockRandom.getInteger(1, 100),
+            id: MockRandom.getInteger(1, 100) + '',
             tipo: tipo,
             nome: MockRandom.getUserName(),
             descricao: MockRandom.getWord(10),
             venda_pelo_app: MockRandom.getBoolean(),
             quantidade: MockRandom.getInteger(1,10),
-            valor: MockRandom.getFloat(1,10),
+            preco: MockRandom.getFloat(1,10),
             imagens: ImagemMock.getMockArray(2),
             valido: MockRandom.getBoolean(),
-
-            id: MockRandom.getInteger(1, 100) + '',
-            code: MockRandom.getInteger(1, 100),
-            name: MockRandom.getUserName(),
-            description: MockRandom.getUserName(),
-            image: MockRandom.getUserName(),
-            price: MockRandom.getFloat(1, 100),
-            category: MockRandom.getUserName(),//'Accessories',
-            quantity: MockRandom.getInteger(1, 100),
-            inventoryStatus: MockRandom.getUserName(),//'INSTOCK',
-            rating: MockRandom.getInteger(1, 5)
+            situacao_produto: SituacaoProdutoEnumMock.getMock()
         };
     }
 

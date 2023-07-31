@@ -101,7 +101,7 @@ import { ColaboradorService } from './services/colaborador.service';
 import { IngressoService } from './services/ingresso.service';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { TipoProdutoEnumMock } from './models/enum/tipo-produto';
+import { TipoProdutoEnumMock } from './models/enum/tipo-produto.enum';
 import { ProdutoComponent } from './pages/produto/produto.component';
 
 @NgModule({
