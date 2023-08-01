@@ -101,8 +101,8 @@ import { ColaboradorService } from './services/colaborador.service';
 import { IngressoService } from './services/ingresso.service';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
-import { TipoProdutoEnumMock } from './models/enum/tipo-produto.enum';
 import { ProdutoComponent } from './pages/produto/produto.component';
+import { ProdutoDialogComponent } from './pages/produto/dialog/produto-dialog.component';
 
 @NgModule({
   declarations: [
@@ -116,7 +116,8 @@ import { ProdutoComponent } from './pages/produto/produto.component';
     BackgroundCloudsComponent,
     PerfilComponent,
     CadastroComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    ProdutoDialogComponent
   ],
   imports: [
     BrowserModule,
