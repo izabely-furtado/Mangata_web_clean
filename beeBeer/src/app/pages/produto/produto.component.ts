@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SituacaoProdutoEnum, SituacaoProdutoEnumMock } from 'app/models/enum/situacao-produto.enum';
+import { TipoProdutoEnum, TipoProdutoEnumMock } from 'app/models/enum/tipo-produto.enum';
 import { Produto } from 'app/models/produto/produto';
 import { ProdutoService } from 'app/services/produto.service';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
@@ -29,6 +30,9 @@ export class ProdutoComponent {
   submitted: boolean = false;
 
   statuses: SituacaoProdutoEnum[] = SituacaoProdutoEnumMock.getMockArray();
+
+  tipos: TipoProdutoEnum[] = TipoProdutoEnumMock.getMockArray();
+
 
   ////
 
