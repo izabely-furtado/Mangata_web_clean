@@ -14,10 +14,10 @@
                     <p-toast></p-toast>
                     <p-table
                         #dt
-                        [value]="products"
+                        [value]="lista"
                         [rows]="10"
                         [paginator]="true"
-                        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+                        [globalFilterFields]="['nome', 'preco', 'tipo', 'situacao_produto', 'venda_pelo_app']"
                         [tableStyle]="{ 'min-width': '75rem' }"
                         [(selection)]="selecteds"
                         [rowHover]="true"
@@ -58,29 +58,29 @@
                                 <th></th>
                             </tr>
                         </ng-template>
-                        <ng-template pTemplate="body" let-product>
+                        <ng-template pTemplate="body" let-item>
                             <tr>
                                 <td>
-                                    <p-tableCheckbox [value]="product"></p-tableCheckbox>
+                                    <p-tableCheckbox [value]="item"></p-tableCheckbox>
                                 </td>
-                                <td>{{ product.nome }}</td>
-                                <td><img [src]="'./assets/images/mock/' + product.imagem_principal" [alt]="product.nome" width="50" class="shadow-4" /></td>
-                                <td>{{ product.preco | currency: 'BRL' }}</td>
-                                <td>{{ product.tipo }}</td>
+                                <td>{{ item.nome }}</td>
+                                <td><img [src]="'./assets/images/mock/' + item.imagem_principal" [alt]="item.nome" width="50" class="shadow-4" /></td>
+                                <td>{{ item.preco | currency: 'BRL' }}</td>
+                                <td>{{ item.tipo }}</td>
                                 <td>
-                                    <p-progressBar [value]="product.quantidade*10"></p-progressBar>
-                                </td>
-                                <td>
-                                    <p-progressBar [value]="product.quantidade*10"></p-progressBar>
+                                    <p-progressBar [value]="item.quantidade*10"></p-progressBar>
                                 </td>
                                 <td>
-                                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(product)"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(product)"></button>
+                                    <p-inputSwitch [(ngModel)]="item.venda_pelo_app" style="border-left: 100px;"></p-inputSwitch>
+                                </td>
+                                <td>
+                                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(item)"></button>
+                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(item)"></button>
                                 </td>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="summary">
-                            <div class="flex align-items-center justify-content-between">Total: {{ products ? products.length : 0 }}</div>
+                            <div class="flex align-items-center justify-content-between">Total: {{ lista ? lista.length : 0 }}</div>
                         </ng-template>
                     </p-table>
                 </div>
@@ -88,14 +88,14 @@
                     <ng-template pTemplate="content">
                         <div class="row">
                             <div class="col-5">
-                                <img [src]="'./assets/images/mock/' + product.imagem_principal" [alt]="product.imagem_principal" class="block m-auto pb-3" *ngIf="product.imagem_principal" />
+                                <img [src]="'./assets/images/mock/' + item.imagem_principal" [alt]="item.imagem_principal" class="block m-auto pb-3" *ngIf="item.imagem_principal" />
                                 <div class="field">
                                     <div class="row">
                                         <div class="col-8">
                                             <label for="venda_pelo_app">Vender pelo app: </label>
                                         </div>
                                         <div class="col-4">
-                                            <p-inputSwitch [(ngModel)]="product.venda_pelo_app" style="border-left: 100px;"></p-inputSwitch>
+                                            <p-inputSwitch [(ngModel)]="item.venda_pelo_app" style="border-left: 100px;"></p-inputSwitch>
                                         </div>
                                     </div>
                                 </div>
@@ -103,36 +103,36 @@
                             <div class="col-7">
                                 <div class="field">
                                     <label for="nome">Nome:</label>
-                                    <input type="text" pInputText id="nome" [(ngModel)]="product.nome" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !product.nome">Name is required.</small>
+                                    <input type="text" pInputText id="nome" [(ngModel)]="item.nome" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.nome">Name is required.</small>
                                 </div>
                                 <div class="field">
                                     <label for="descricao">Descrição:</label>
-                                    <textarea id="descricao" pInputTextarea [(ngModel)]="product.descricao" required rows="3" cols="20"></textarea>
+                                    <textarea id="descricao" pInputTextarea [(ngModel)]="item.descricao" required rows="3" cols="20"></textarea>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="field">
                                     <label for="situacao_produto">Situação do Produto:</label>
-                                    <p-dropdown [options]="statuses" [(ngModel)]="product.situacao_produto"></p-dropdown>
+                                    <p-dropdown [options]="statuses" [(ngModel)]="item.situacao_produto"></p-dropdown>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="field">
                                     <label for="tipo">Tipo:</label>
-                                    <p-dropdown [options]="tipos" [(ngModel)]="product.tipo"></p-dropdown>
+                                    <p-dropdown [options]="tipos" [(ngModel)]="item.tipo"></p-dropdown>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="field">
                                     <label for="preco">Preço:</label>
-                                    <p-inputNumber id="preco" [(ngModel)]="product.preco" mode="currency" currency="BRL" locale="pt-BR"></p-inputNumber>
+                                    <p-inputNumber id="preco" [(ngModel)]="item.preco" mode="currency" currency="BRL" locale="pt-BR"></p-inputNumber>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="field">
                                     <label for="quantidade">Quantidade:</label>
-                                    <p-inputNumber id="quantidade" [(ngModel)]="product.quantidade"></p-inputNumber>
+                                    <p-inputNumber id="quantidade" [(ngModel)]="item.quantidade"></p-inputNumber>
                                 </div>
                             </div>
                         </div>

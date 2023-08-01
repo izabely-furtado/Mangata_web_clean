@@ -15,8 +15,8 @@ export class ProdutoComponent {
   home: MenuItem | undefined;
 
   productDialog: boolean = false;
-  products!: Produto[];
-  product!: Produto;
+  lista!: Produto[];
+  item!: Produto;
   selecteds!: Produto[] | null;
 
   submitted: boolean = false;
@@ -31,19 +31,19 @@ export class ProdutoComponent {
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
-    this.getProdutos();
+    this.getAll();
   }
 
   openNew() {
-    this.product;
+    this.item;
     this.submitted = false;
     this.productDialog = true;
   }
 
-  getProdutos() {
+  getAll() {
     this.productService.getAllProdutos().subscribe(
       data => {
-        this.products = data
+        this.lista = data
       },
       error => {
         // Handle the error in case of failure
@@ -54,19 +54,19 @@ export class ProdutoComponent {
 
   deleteSelecteds() {
     this.confirmationService.confirm({
-      message: 'Você tem certeza que deseja deletar os produtos selecionados?',
+      message: 'Você tem certeza que deseja deletar selecionados?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.products = this.products.filter((val) => !this.selecteds?.includes(val));
+        this.lista = this.lista.filter((val) => !this.selecteds?.includes(val));
         this.selecteds = null;
-        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Produto(s) Deletado(s)', life: 3000 });
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item(ns) Deletado(s)', life: 3000 });
       }
     });
   }
 
   edit(product: Produto) {
-    this.product = { ...product };
+    this.item = { ...product };
     this.productDialog = true;
   }
 
@@ -76,9 +76,9 @@ export class ProdutoComponent {
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.products = this.products.filter((val) => val.id !== product.id);
-        this.product;
-        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Produto Deletado', life: 3000 });
+        this.lista = this.lista.filter((val) => val.id !== product.id);
+        this.item;
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Deletado', life: 3000 });
       }
     });
   }
@@ -91,27 +91,27 @@ export class ProdutoComponent {
   save() {
     this.submitted = true;
 
-    if (this.product.nome?.trim()) {
-      if (this.product.id) {
-        this.products[this.findIndexById(this.product.id)] = this.product;
-        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Produto Atualizado', life: 3000 });
+    if (this.item.nome?.trim()) {
+      if (this.item.id) {
+        this.lista[this.findIndexById(this.item.id)] = this.item;
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });
       } else {
-        this.product.id = this.createId();
-        this.product.imagem_principal = 'product-placeholder.svg';
-        this.products.push(this.product);
-        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Produto Criado', life: 3000 });
+        this.item.id = this.createId();
+        this.item.imagem_principal = 'product-placeholder.svg';
+        this.lista.push(this.item);
+        this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Criado', life: 3000 });
       }
 
-      this.products = [...this.products];
+      this.lista = [...this.lista];
       this.productDialog = false;
-      this.product;
+      this.item;
     }
   }
 
   findIndexById(id: string): number {
     let index = -1;
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === id) {
+    for (let i = 0; i < this.lista.length; i++) {
+      if (this.lista[i].id === id) {
         index = i;
         break;
       }
