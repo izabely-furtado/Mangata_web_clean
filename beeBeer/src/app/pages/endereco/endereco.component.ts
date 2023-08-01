@@ -1,33 +1,28 @@
 import { Component } from '@angular/core';
-import { SituacaoProdutoEnum, SituacaoProdutoEnumMock } from 'app/models/enum/situacao-produto.enum';
-import { TipoProdutoEnum, TipoProdutoEnumMock } from 'app/models/enum/tipo-produto.enum';
-import { Produto } from 'app/models/produto/produto';
-import { ProdutoService } from 'app/services/produto.service';
+import { Endereco } from 'app/models/endereco/endereco';
+import { EnderecoService } from 'app/services/endereco.service';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.scss']
+  selector: 'app-endereco',
+  templateUrl: './endereco.component.html',
+  styleUrls: ['./endereco.component.scss']
 })
-export class ProdutoComponent {
+export class EnderecoComponent {
   items: MenuItem[] | undefined;
   home: MenuItem | undefined;
 
   productDialog: boolean = false;
-  lista!: Produto[];
-  item!: Produto;
-  selecteds!: Produto[] | null;
+  lista!: Endereco[];
+  item!: Endereco;
+  selecteds!: Endereco[] | null;
 
   submitted: boolean = false;
 
-  statuses: SituacaoProdutoEnum[] = SituacaoProdutoEnumMock.getMockArray();
-  tipos: TipoProdutoEnum[] = TipoProdutoEnumMock.getMockArray();
-
-  constructor(private service: ProdutoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(private service: EnderecoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.items = [{ label: 'Cadastro', url: './cadastro', target: '_self'}, { label: 'Produto' }];
+    this.items = [{ label: 'Cadastro', url: './cadastro', target: '_self'}, { label: 'Endereco' }];
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
@@ -41,7 +36,7 @@ export class ProdutoComponent {
   }
 
   getAll() {
-    this.service.getAllProdutos().subscribe(
+    this.service.getAllEnderecos().subscribe(
       data => {
         this.lista = data
       },
@@ -65,14 +60,14 @@ export class ProdutoComponent {
     });
   }
 
-  edit(item: Produto) {
-    this.item = { ...item };
+  edit(product: Endereco) {
+    this.item = { ...product };
     this.productDialog = true;
   }
 
-  delete(item: Produto) {
+  delete(item: Endereco) {
     this.confirmationService.confirm({
-      message: 'Você tem certeza que deseja deletar ' + item.nome + '?',
+      message: 'Você tem certeza que deseja deletar ' + item.cep + ' - ' + item.numero + '?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
@@ -91,13 +86,12 @@ export class ProdutoComponent {
   save() {
     this.submitted = true;
 
-    if (this.item.nome?.trim()) {
+    if (this.item.cep.trim()) {
       if (this.item.id) {
         this.lista[this.findIndexById(this.item.id)] = this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });
       } else {
         this.item.id = this.createId();
-        this.item.imagem_principal = 'product-placeholder.svg';
         this.lista.push(this.item);
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Criado', life: 3000 });
       }

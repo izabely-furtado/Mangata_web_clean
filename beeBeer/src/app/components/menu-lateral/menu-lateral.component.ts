@@ -54,7 +54,7 @@ export class MenuLateralComponent {
             {
                 label: 'Endereços',
                 icon: './assets/images/3D-Icons/59.png',
-                url: './endereço',
+                url: './cadastro/endereco',
                 target: '_self'
             },
             {

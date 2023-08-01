@@ -1,6 +1,9 @@
+import { EstadoService } from "app/utils/estado.list";
 import { MockRandom } from "app/utils/mock-random";
 
 export interface Endereco {
+    id?: string,
+    nome?: string,
     cep: string,
     state: string,
     city: string,
@@ -37,10 +40,13 @@ export class EnderecoMock {
 
     public static getMock(): Endereco {
         return {
-            cep:  MockRandom.getInteger(1, 99) + "",
-            state: MockRandom.getString(),
-            city: MockRandom.getString(),
-            street: MockRandom.getString(),
+            id: MockRandom.getInteger(1,9999) + '',
+            nome: MockRandom.getName(),
+            cep:  MockRandom.getInteger(10, 99) + '.' + MockRandom.getInteger(100, 999) + '-' + MockRandom.getInteger(100, 999),
+            numero: MockRandom.getInteger(1, 999),
+            state: EstadoService.getMock().nome,
+            city: MockRandom.getName(),
+            street: MockRandom.getName(),
             neighborhood: MockRandom.getString()
         };
     }

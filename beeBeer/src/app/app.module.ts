@@ -103,6 +103,8 @@ import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.com
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { ProdutoComponent } from './pages/produto/produto.component';
 import { ProdutoDialogComponent } from './pages/produto/dialog/produto-dialog.component';
+import { EnderecoComponent } from './pages/endereco/endereco.component';
+import { EnderecoService } from './services/endereco.service';
 
 @NgModule({
   declarations: [
@@ -117,7 +119,8 @@ import { ProdutoDialogComponent } from './pages/produto/dialog/produto-dialog.co
     PerfilComponent,
     CadastroComponent,
     ProdutoComponent,
-    ProdutoDialogComponent
+    ProdutoDialogComponent,
+    EnderecoComponent
   ],
   imports: [
     BrowserModule,
@@ -216,6 +219,7 @@ import { ProdutoDialogComponent } from './pages/produto/dialog/produto-dialog.co
     ImagemService,
     IngressoService,
     ProdutoService,
+    EnderecoService
   ],
   bootstrap: [AppComponent]
 })
