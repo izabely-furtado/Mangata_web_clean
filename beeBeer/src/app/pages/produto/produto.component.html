@@ -17,7 +17,7 @@
                         [value]="products"
                         [rows]="10"
                         [paginator]="true"
-                        [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+                        [globalFilterFields]="['nome', 'imagem_principal', 'preco', 'tipo', 'situacao_produto']"
                         [tableStyle]="{ 'min-width': '75rem' }"
                         [(selection)]="selectedProducts"
                         [rowHover]="true"
@@ -66,24 +66,8 @@
                                 <td><img [src]="'./assets/images/mock/' + product.imagem_principal" [alt]="product.nome" width="50" class="shadow-4" /></td>
                                 <td>{{ product.preco | currency: 'BRL' }}</td>
                                 <td>{{ product.tipo }}</td>
-                                <!-- <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td> -->
                                 <td>
-                                    <!-- {{ product.situacao_produto }} -->
                                     <p-progressBar [value]="product.quantidade*10"></p-progressBar>
-                                    
-                                    <!-- <p-rating [(ngModel)]="product.quantidade" stars="5" [readonly]="true">
-                                        <ng-template pTemplate="cancel">
-                                            <img src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png" width="25px" height="25px" />
-                                        </ng-template>
-                                        <ng-template pTemplate="onicon">
-                                            <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon-active.png" width="25px" height="25px" />
-                                        </ng-template>
-                                        <ng-template pTemplate="officon">
-                                            <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png" width="25px" height="25px" />
-                                        </ng-template>
-                                    </p-rating> -->
-                                    
-                                    <p-tag [value]="product.situacao_produto" [severity]="getSeverity(product.situacao_produto)"></p-tag>
                                 </td>
                                 <td>
                                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
