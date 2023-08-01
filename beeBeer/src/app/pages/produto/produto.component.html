@@ -19,7 +19,7 @@
                         [paginator]="true"
                         [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
                         [tableStyle]="{ 'min-width': '75rem' }"
-                        [(selection)]="selectedProducts"
+                        [(selection)]="selecteds"
                         [rowHover]="true"
                         dataKey="id"
                         currentPageReportTemplate="{first} à {last} de {totalRecords}"
@@ -29,7 +29,7 @@
                                 <p-toolbar>
                                     <ng-template pTemplate="left">
                                         <button pButton pRipple label="" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
-                                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelectedProducts()" [disabled]="!selectedProducts || !selectedProducts.length"></button>
+                                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger mr-2" (click)="deleteSelecteds()" [disabled]="!selecteds || !selecteds.length"></button>
                                         <span class="p-input-icon-left">
                                             <i class="pi pi-search"></i>
                                             <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Pesquisar..." />
@@ -74,8 +74,8 @@
                                     <p-progressBar [value]="product.quantidade*10"></p-progressBar>
                                 </td>
                                 <td>
-                                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editProduct(product)"></button>
-                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteProduct(product)"></button>
+                                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(product)"></button>
+                                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(product)"></button>
                                 </td>
                             </tr>
                         </ng-template>
@@ -141,7 +141,7 @@
                 
                     <ng-template pTemplate="footer">
                         <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-                        <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="saveProduct()"></button>
+                        <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="save()"></button>
                     </ng-template>
                 </p-dialog>
                 

@@ -11,30 +11,18 @@ import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
   styleUrls: ['./produto.component.scss']
 })
 export class ProdutoComponent {
-  name = 'Jane';
-  teste = undefined;
-  valid = false;
-
   items: MenuItem[] | undefined;
-
   home: MenuItem | undefined;
 
   productDialog: boolean = false;
-
   products!: Produto[];
-
   product!: Produto;
-
-  selectedProducts!: Produto[] | null;
+  selecteds!: Produto[] | null;
 
   submitted: boolean = false;
 
   statuses: SituacaoProdutoEnum[] = SituacaoProdutoEnumMock.getMockArray();
-
   tipos: TipoProdutoEnum[] = TipoProdutoEnumMock.getMockArray();
-
-
-  ////
 
   constructor(private productService: ProdutoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
@@ -44,10 +32,6 @@ export class ProdutoComponent {
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
     this.getProdutos();
-
-    ///.then((data) => (this.products = data));
-
-    
   }
 
   openNew() {
@@ -68,25 +52,25 @@ export class ProdutoComponent {
     )
   }
 
-  deleteSelectedProducts() {
+  deleteSelecteds() {
     this.confirmationService.confirm({
       message: 'Você tem certeza que deseja deletar os produtos selecionados?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.products = this.products.filter((val) => !this.selectedProducts?.includes(val));
-        this.selectedProducts = null;
+        this.products = this.products.filter((val) => !this.selecteds?.includes(val));
+        this.selecteds = null;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Produto(s) Deletado(s)', life: 3000 });
       }
     });
   }
 
-  editProduct(product: Produto) {
+  edit(product: Produto) {
     this.product = { ...product };
     this.productDialog = true;
   }
 
-  deleteProduct(product: Produto) {
+  delete(product: Produto) {
     this.confirmationService.confirm({
       message: 'Você tem certeza que deseja deletar ' + product.nome + '?',
       header: 'Confirmar',
@@ -104,7 +88,7 @@ export class ProdutoComponent {
     this.submitted = false;
   }
 
-  saveProduct() {
+  save() {
     this.submitted = true;
 
     if (this.product.nome?.trim()) {
@@ -143,17 +127,5 @@ export class ProdutoComponent {
       id += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return id;
-  }
-
-  getSeverity(status: SituacaoProdutoEnum) {
-    debugger
-    switch (status) {
-      case SituacaoProdutoEnum.em_estoque:
-        return 'success';
-      case SituacaoProdutoEnum.baixo_estoque:
-        return 'warning';
-      case SituacaoProdutoEnum.fora_estoque:
-        return 'danger';
-    }
   }
 }
