@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Cidade } from 'app/models/endereco/cidade';
 import { Endereco } from 'app/models/endereco/endereco';
 import { Estado } from 'app/models/endereco/estado';
 import { EnderecoService } from 'app/services/endereco.service';
@@ -38,7 +37,6 @@ export class EnderecoComponent {
   }
 
   openNew() {
-    this.item;
     this.submitted = false;
     this.productDialog = true;
   }
@@ -84,7 +82,6 @@ export class EnderecoComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.lista = this.lista.filter((val) => val.id !== item.id);
-        this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Deletado', life: 3000 });
       }
     });
@@ -110,7 +107,6 @@ export class EnderecoComponent {
 
       this.lista = [...this.lista];
       this.productDialog = false;
-      this.item;
     }
   }
 
@@ -128,8 +124,8 @@ export class EnderecoComponent {
 
   createId(): string {
     let id = '';
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < 5; i++) {
+    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 5; i++) {
       id += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return id;

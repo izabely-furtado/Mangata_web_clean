@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Colaborador } from 'app/models/colaborador/colaborador';
-import { Permissao } from 'app/models/colaborador/permissao';
 import { TipoPermissaoEnum, TipoPermissaoEnumMock } from 'app/models/enum/tipo-permissao.enum';
 import { ColaboradorService } from 'app/services/colaborador.service';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
@@ -34,7 +33,6 @@ export class ColaboradorComponent {
   }
 
   openNew() {
-    this.item;
     this.submitted = false;
     this.colaboradorDialog = true;
   }
@@ -77,7 +75,6 @@ export class ColaboradorComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.lista = this.lista.filter((val) => val.id !== item.id);
-        this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Deletado', life: 3000 });
       }
     });
@@ -103,7 +100,6 @@ export class ColaboradorComponent {
 
       this.lista = [...this.lista];
       this.colaboradorDialog = false;
-      this.item;
     }
   }
 
@@ -121,8 +117,8 @@ export class ColaboradorComponent {
 
   createId(): string {
     let id = '';
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < 5; i++) {
+    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 5; i++) {
       id += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return id;

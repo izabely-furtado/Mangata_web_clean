@@ -35,7 +35,6 @@ export class ProdutoComponent {
   }
 
   openNew() {
-    this.item;
     this.submitted = false;
     this.productDialog = true;
   }
@@ -77,7 +76,6 @@ export class ProdutoComponent {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.lista = this.lista.filter((val) => val.id !== item.id);
-        this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Deletado', life: 3000 });
       }
     });
@@ -104,7 +102,6 @@ export class ProdutoComponent {
 
       this.lista = [...this.lista];
       this.productDialog = false;
-      this.item;
     }
   }
 
@@ -122,8 +119,8 @@ export class ProdutoComponent {
 
   createId(): string {
     let id = '';
-    var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (var i = 0; i < 5; i++) {
+    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < 5; i++) {
       id += chars.charAt(Math.floor(Math.random() * chars.length));
     }
     return id;

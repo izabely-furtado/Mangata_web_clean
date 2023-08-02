@@ -11,6 +11,7 @@
     "baseUrl": "./src",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "ignoreDeprecations": "5.0",
     "lib": [
       "es2018",
       "dom"
