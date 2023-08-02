@@ -3,6 +3,7 @@ import { SituacaoProdutoEnum, SituacaoProdutoEnumMock } from 'app/models/enum/si
 import { TipoProdutoEnum, TipoProdutoEnumMock } from 'app/models/enum/tipo-produto.enum';
 import { Produto } from 'app/models/produto/produto';
 import { ProdutoService } from 'app/services/produto.service';
+import { GeralUtil } from 'app/utils/geral.util';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
@@ -94,7 +95,7 @@ export class ProdutoComponent {
         this.lista[this.findIndexById(this.item.id)] = this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });
       } else {
-        this.item.id = this.createId();
+        this.item.id = GeralUtil.createId();
         this.item.imagem_principal = 'product-placeholder.svg';
         this.lista.push(this.item);
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Criado', life: 3000 });
@@ -115,14 +116,5 @@ export class ProdutoComponent {
     }
 
     return index;
-  }
-
-  createId(): string {
-    let id = '';
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 5; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
   }
 }

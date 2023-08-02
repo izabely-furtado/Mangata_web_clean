@@ -4,6 +4,7 @@ import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from 'app/models/enum/area-atuac
 import { TipoPermissaoEnum, TipoPermissaoEnumMock } from 'app/models/enum/tipo-permissao.enum';
 import { TipoPessoaEnum, TipoPessoaEnumMock } from 'app/models/enum/tipo-pessoa.enum';
 import { EmpresaService } from 'app/services/empresa.service';
+import { GeralUtil } from 'app/utils/geral.util';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
@@ -97,7 +98,7 @@ export class ParceiroComponent {
         this.lista[this.findIndexById(this.item.id)] = this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });
       } else {
-        this.item.id = this.createId();
+        this.item.id = GeralUtil.createId();
         this.lista.push(this.item);
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Criado', life: 3000 });
       }
@@ -117,14 +118,5 @@ export class ParceiroComponent {
     }
 
     return index;
-  }
-
-  createId(): string {
-    let id = '';
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 5; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
   }
 }

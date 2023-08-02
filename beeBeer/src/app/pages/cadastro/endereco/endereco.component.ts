@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Endereco } from 'app/models/endereco/endereco';
 import { Estado } from 'app/models/endereco/estado';
+import { Erro } from 'app/models/erro/erro';
 import { EnderecoService } from 'app/services/endereco.service';
-import { EnderecoUtil } from 'app/utils/endereco.util';
 import { EstadoService } from 'app/utils/estado.list';
+import { GeralUtil } from 'app/utils/geral.util';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
+const cidades = require('cidades-promise'); //https://www.npmjs.com/package/cidades-promise
 
 @Component({
   selector: 'app-endereco',
@@ -29,7 +31,6 @@ export class EnderecoComponent {
 
   ngOnInit() {
     this.items = [{ label: 'Cadastro', url: './cadastro', target: '_self'}, { label: 'Endereco' }];
-
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
     this.getAll();
@@ -54,7 +55,14 @@ export class EnderecoComponent {
   }
 
   getCidades() {
-    this.cidades = EnderecoUtil.getCidadesByEstado('ES')
+    cidades.getCitiesByState('ES')
+      .then((res: string[]) => {
+        this.cidades = res
+      })
+      .catch((erro: Erro) => {
+          window.alert(erro.erro)
+          return []
+      })
   }
 
   deleteSelecteds() {
@@ -100,7 +108,7 @@ export class EnderecoComponent {
         this.lista[this.findIndexById(this.item.id)] = this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });
       } else {
-        this.item.id = this.createId();
+        this.item.id = GeralUtil.createId();
         this.lista.push(this.item);
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Criado', life: 3000 });
       }
@@ -120,14 +128,5 @@ export class EnderecoComponent {
     }
 
     return index;
-  }
-
-  createId(): string {
-    let id = '';
-    let chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < 5; i++) {
-      id += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    return id;
   }
 }
