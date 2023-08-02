@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Parceiro } from 'app/models/empresa/parceiro';
+import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from 'app/models/enum/area-atuacao.enum';
 import { TipoPermissaoEnum, TipoPermissaoEnumMock } from 'app/models/enum/tipo-permissao.enum';
+import { TipoPessoaEnum, TipoPessoaEnumMock } from 'app/models/enum/tipo-pessoa.enum';
 import { EmpresaService } from 'app/services/empresa.service';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
@@ -21,6 +23,8 @@ export class ParceiroComponent {
   submitted: boolean = false;
 
   permissoes: TipoPermissaoEnum[] = TipoPermissaoEnumMock.getMockArray();
+  tipos_pessoas: TipoPessoaEnum[] = TipoPessoaEnumMock.getMockArray();
+  areas_atuacao: AreaAtuacaoEnum[] = AreaAtuacaoEnumMock.getMockArray();
 
   constructor(private service: EmpresaService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 

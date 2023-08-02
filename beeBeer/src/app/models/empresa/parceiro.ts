@@ -8,15 +8,14 @@ import { TipoPessoaEnum, TipoPessoaEnumMock } from "../enum/tipo-pessoa.enum";
 export interface Parceiro {
     id: string
     tipo_pessoa: TipoPessoaEnum
-    cnpj?: string
-    razao_social: string
-    nome_fantasia?: string
-    cpf?: string
-    nome: string
-    nascimento?: Date
+    documento?: string //cnpj se pessoa juridica e cpf se pessoa fisica
+    razao_social?: string
+    nome: string //nome-fantasia se pessoa juridica
+    nascimento?: Date //fundado em em caso de pessoa juridica
     login: Login
     area_atuacao?: AreaAtuacaoEnum,
-    imagens?: Imagem[]
+    imagem_principal: string // decidir o tipo depois
+    //imagens?: Imagem[] // decidir se vou colocar depois
     
     valido?: boolean
 }
@@ -25,18 +24,17 @@ export class ParceiroMock {
     static lista: Parceiro[];
 
     public static getMock(): Parceiro {
+        let quantidade_var = MockRandom.getInteger(1,10)
         return {
             id: MockRandom.getInteger(1, 100) + '',
             tipo_pessoa: TipoPessoaEnumMock.getMock(),
-            cnpj: MockRandom.getInteger(1, 1000000) + '',
+            documento: MockRandom.getInteger(100, 999) + '.' + MockRandom.getInteger(100, 999) + '.' + MockRandom.getInteger(100, 999) + '-' + MockRandom.getInteger(10, 99),
             razao_social: MockRandom.getUserName(),
-            nome_fantasia: MockRandom.getUserName(),
-            cpf: MockRandom.getInteger(1, 1000000) + '',
             nome: MockRandom.getUserName(),
             nascimento: MockRandom.getDatePast(),
             login: LoginMock.getMock(),
             area_atuacao: AreaAtuacaoEnumMock.getMock(),
-            imagens: ImagemMock.getMockArray(10)
+            imagem_principal: quantidade_var + '.jpg'
         };
     }
 

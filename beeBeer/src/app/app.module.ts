@@ -102,7 +102,6 @@ import { IngressoService } from './services/ingresso.service';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { ProdutoComponent } from './pages/cadastro/produto/produto.component';
-import { ProdutoDialogComponent } from './pages/cadastro/produto/dialog/produto-dialog.component';
 import { EnderecoComponent } from './pages/cadastro/endereco/endereco.component';
 import { EnderecoService } from './services/endereco.service';
 import { ColaboradorComponent } from './pages/cadastro/colaborador/colaborador.component';
@@ -121,7 +120,6 @@ import { ParceiroComponent } from './pages/cadastro/parceiro/parceiro.component'
     PerfilComponent,
     CadastroComponent,
     ProdutoComponent,
-    ProdutoDialogComponent,
     EnderecoComponent,
     ColaboradorComponent,
     ParceiroComponent
