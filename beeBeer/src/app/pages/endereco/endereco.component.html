@@ -77,55 +77,79 @@
                         </ng-template>
                     </p-table>
                 </div>
-                <p-dialog [(visible)]="productDialog" [style]="{ width: '40%' }" header="Detalhes do Produto" [modal]="true" styleClass="p-fluid">
+                <p-dialog [(visible)]="productDialog" [style]="{ width: '40%' }" header="Detalhes do Endereço" [modal]="true" styleClass="p-fluid">
                     <ng-template pTemplate="content">
                         <div class="row">
-                            <div class="col-5">
-                                <img [src]="'./assets/images/mock/' + item.imagem_principal" [alt]="item.imagem_principal" class="block m-auto pb-3" *ngIf="item.imagem_principal" />
-                                <div class="field">
-                                    <div class="row">
-                                        <div class="col-8">
-                                            <label for="venda_pelo_app">Vender pelo app: </label>
-                                        </div>
-                                        <div class="col-4">
-                                            <p-inputSwitch [(ngModel)]="item.venda_pelo_app" style="border-left: 100px;"></p-inputSwitch>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-7">
+                            <div class="col-6">
                                 <div class="field">
                                     <label for="nome">Nome:</label>
                                     <input type="text" pInputText id="nome" [(ngModel)]="item.nome" required autofocus />
                                     <small class="p-error" *ngIf="submitted && !item.nome">Name is required.</small>
                                 </div>
+                            </div>
+                            <div class="col-3">
                                 <div class="field">
-                                    <label for="descricao">Descrição:</label>
+                                    <label for="cep">CEP:</label>
+                                    <input type="text" pInputText id="cep" [(ngModel)]="item.cep" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.cep">Name is required.</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-3">
+                                <!-- colocar o mapa aqui depois ? -->
+                                <div class="field">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <label for="e_principal">É o principal? </label>
+                                        </div>
+                                        <div class="col-12">
+                                            <p-inputSwitch [(ngModel)]="item.e_principal" style="border-left: 100px;"></p-inputSwitch>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="field">
+                                    <label for="street">Rua/Avenida:</label>
+                                    <input type="text" pInputText id="street" [(ngModel)]="item.street" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.street">Name is required.</small>
+                                </div>
+                            </div>
+                            <div class="col-2">
+                                <div class="field">
+                                    <label for="numero">Número:</label>
+                                    <p-inputNumber id="numero" [(ngModel)]="item.numero"></p-inputNumber>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="field">
+                                    <label for="neighborhood">Bairro:</label>
+                                    <input type="text" pInputText id="neighborhood" [(ngModel)]="item.neighborhood" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.neighborhood">Name is required.</small>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="field">
+                                    <label for="numero">Complemento:</label>
                                     <textarea id="descricao" pInputTextarea [(ngModel)]="item.descricao" required rows="3" cols="20"></textarea>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="field">
-                                    <label for="situacao_produto">Situação do Produto:</label>
-                                    <p-dropdown [options]="statuses" [(ngModel)]="item.situacao_produto"></p-dropdown>
+                                    <label for="city">Cidade:</label>
+                                    <p-dropdown [options]="cidades" [(ngModel)]="item.city"></p-dropdown>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="field">
-                                    <label for="tipo">Tipo:</label>
-                                    <p-dropdown [options]="tipos" [(ngModel)]="item.tipo"></p-dropdown>
+                                    <label for="state">Estado:</label>
+                                    <p-dropdown [options]="estados" [(ngModel)]="item.state" optionLabel="nome" optionValue="sigla"></p-dropdown>
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12">
                                 <div class="field">
-                                    <label for="preco">Preço:</label>
-                                    <p-inputNumber id="preco" [(ngModel)]="item.preco" mode="currency" currency="BRL" locale="pt-BR"></p-inputNumber>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="field">
-                                    <label for="quantidade">Quantidade:</label>
-                                    <p-inputNumber id="quantidade" [(ngModel)]="item.quantidade"></p-inputNumber>
+                                    <label for="link_maps">Link para maps:</label>
+                                    <input type="text" pInputText id="link_maps" [(ngModel)]="item.link_maps" required autofocus />
                                 </div>
                             </div>
                         </div>

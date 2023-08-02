@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
+import { Cidade } from 'app/models/endereco/cidade';
 import { Endereco } from 'app/models/endereco/endereco';
+import { Estado } from 'app/models/endereco/estado';
 import { EnderecoService } from 'app/services/endereco.service';
+import { EnderecoUtil } from 'app/utils/endereco.util';
+import { EstadoService } from 'app/utils/estado.list';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
@@ -19,6 +23,9 @@ export class EnderecoComponent {
 
   submitted: boolean = false;
 
+  estados: Estado[] = EstadoService.getLista()
+  cidades: string[] = [];
+
   constructor(private service: EnderecoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
@@ -27,6 +34,7 @@ export class EnderecoComponent {
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
     this.getAll();
+    this.getCidades();
   }
 
   openNew() {
@@ -45,6 +53,10 @@ export class EnderecoComponent {
         console.error('Error fetching states:', error);
       }
     )
+  }
+
+  getCidades() {
+    this.cidades = EnderecoUtil.getCidadesByEstado('ES')
   }
 
   deleteSelecteds() {

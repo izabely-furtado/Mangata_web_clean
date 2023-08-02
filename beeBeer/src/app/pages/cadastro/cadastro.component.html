@@ -6,10 +6,7 @@
             <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
         </div>
         <p-card header="Cadastro">
-<!--             
-            url: './cadastro/colaborador',
-                target: '_self' -->
-            <p-carousel [value]="items2" [numVisible]="6" [numScroll]="6" [circular]="false" [responsiveOptions]="responsiveOptions">
+            <p-carousel [value]="items2" [numVisible]="5" [numScroll]="5" [circular]="false" [responsiveOptions]="responsiveOptions" [autoplayInterval]="3000">
                 <ng-template let-pagina pTemplate="item">
                     <div class="pagina-item" (click)="abrirLink(pagina.url)">
                         <div class="pagina-item-content">

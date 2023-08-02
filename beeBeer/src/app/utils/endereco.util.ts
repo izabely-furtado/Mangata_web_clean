@@ -50,16 +50,18 @@ export class EnderecoUtil {
         return retorno;
     }
     
-    public static getCidadesByEstado(estadoSigla : string): string[] {
+    public static getCidadesByEstado(estadoSigla : string): string[] | any {
         let retorno: string[] = [];
+        debugger
         cidades.getCitiesByState(estadoSigla)
         .then((res: string[]) => {
-            retorno = res
+            return res
         })
         .catch((erro: Erro) => {
             window.alert(erro.erro)
+            return []
         })
-        return retorno
+        
     }
 
     public static getCidadesByDDD(ddd : number): Cidade {

@@ -47,7 +47,8 @@ export class EnderecoMock {
             state: EstadoService.getMock().nome,
             city: MockRandom.getName(),
             street: MockRandom.getName(),
-            neighborhood: MockRandom.getString()
+            e_principal: MockRandom.getBoolean(),
+            neighborhood: MockRandom.getName()
         };
     }
 
