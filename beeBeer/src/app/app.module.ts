@@ -105,6 +105,7 @@ import { ProdutoComponent } from './pages/produto/produto.component';
 import { ProdutoDialogComponent } from './pages/produto/dialog/produto-dialog.component';
 import { EnderecoComponent } from './pages/endereco/endereco.component';
 import { EnderecoService } from './services/endereco.service';
+import { ColaboradorComponent } from './pages/colaborador/colaborador.component';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { EnderecoService } from './services/endereco.service';
     CadastroComponent,
     ProdutoComponent,
     ProdutoDialogComponent,
-    EnderecoComponent
+    EnderecoComponent,
+    ColaboradorComponent
   ],
   imports: [
     BrowserModule,

@@ -42,7 +42,7 @@ export class MenuLateralComponent {
             {
                 label: 'Colaboradores',
                 icon: './assets/images/3D-Icons/37.png',
-                url: './perfil',
+                url: './cadastro/colaborador',
                 target: '_self'
             },
             {
