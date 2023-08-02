@@ -12,7 +12,7 @@ export class MenuLateralComponent {
 
     position: string = 'left';
 
-    positionOptions = [
+    public static positionOptions = [
         {
             label: 'Bottom',
             value: 'bottom'
@@ -32,7 +32,11 @@ export class MenuLateralComponent {
     ];
 
     ngOnInit() {
-        this.items = [
+        this.items = MenuLateralComponent.getItems();
+    }
+
+    public static getItems(): MenuItem[] {
+        return [
             {
                 label: 'Empresa',
                 icon: './assets/images/3D-Icons/60.png',
