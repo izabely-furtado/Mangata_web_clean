@@ -27,9 +27,9 @@ export class MenuService {
   public static getItemsMenuCadastro(): MenuItem[] {
       return [
           {
-              label: 'Empresa',
+              label: 'Parceiro',
               icon: './assets/images/3D-Icons/60.png',
-              url: './empresa',
+              url: './cadastro/parceiro',
               target: '_self'
           },
           {

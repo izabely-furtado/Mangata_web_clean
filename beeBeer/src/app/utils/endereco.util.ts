@@ -52,7 +52,6 @@ export class EnderecoUtil {
     
     public static getCidadesByEstado(estadoSigla : string): string[] | any {
         let retorno: string[] = [];
-        debugger
         cidades.getCitiesByState(estadoSigla)
         .then((res: string[]) => {
             return res
