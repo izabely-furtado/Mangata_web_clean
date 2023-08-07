@@ -27,16 +27,16 @@ export class MenuService {
   public static getItemsMenuCadastro(): MenuItem[] {
       return [
           {
-              label: 'Parceiro',
+              label: 'Colaboradores',
               icon: './assets/images/3D-Icons/60.png',
-              url: './cadastro/parceiro',
+              url: './cadastro/colaborador',
               target: '_self'
           },
           {
-              label: 'Colaboradores',
-              icon: './assets/images/3D-Icons/37.png',
-              url: './cadastro/colaborador',
-              target: '_self'
+            label: 'Parceiros',
+            icon: './assets/images/3D-Icons/37.png',
+            url: './cadastro/parceiro',
+            target: '_self'
           },
           {
               label: 'Permissões',

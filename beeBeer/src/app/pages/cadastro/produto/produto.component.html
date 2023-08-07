@@ -17,7 +17,7 @@
                         [value]="lista"
                         [rows]="10"
                         [paginator]="true"
-                        [globalFilterFields]="['nome', 'preco', 'tipo', 'situacao_produto', 'venda_pelo_app']"
+                        [globalFilterFields]="['nome', 'preco', 'tipo', 'situacao_produto']"
                         [tableStyle]="{ 'min-width': '75rem' }"
                         [(selection)]="selecteds"
                         [rowHover]="true"
@@ -48,14 +48,13 @@
                                 <th style="width: 4rem">
                                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                                 </th>
-                                <th pSortableColumn="nome" style="min-width:15rem">Nome <p-sortIcon field="nome"></p-sortIcon></th>
+                                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
                                 <th>Imagem</th>
                                 <th pSortableColumn="preco">Preço <p-sortIcon field="preco"></p-sortIcon></th>
-                                <th pSortableColumn="tipo" style="min-width:10rem">Tipo de Produto <p-sortIcon field="tipo"></p-sortIcon></th>
-                                <!-- <th pSortableColumn="rating">Reviews <p-sortIcon field="rating"></p-sortIcon></th> -->
-                                <th pSortableColumn="situacao_produto" style="min-width:10rem">Situação do Estoque<p-sortIcon field="situacao_produto"></p-sortIcon></th>
-                                <th pSortableColumn="venda_pelo_app" style="min-width:10rem">Venda pelo App<p-sortIcon field="venda_pelo_app"></p-sortIcon></th>
-                                <th></th>
+                                <th pSortableColumn="tipo">Tipo de Produto <p-sortIcon field="tipo"></p-sortIcon></th>
+                                <th pSortableColumn="situacao_produto">Situação do Estoque<p-sortIcon field="situacao_produto"></p-sortIcon></th>
+                                <!-- <th pSortableColumn="venda_pelo_app">Venda pelo App<p-sortIcon field="venda_pelo_app"></p-sortIcon></th> -->
+                                <th style="width: 8rem"></th>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="body" let-item>
@@ -70,9 +69,9 @@
                                 <td>
                                     <p-progressBar [value]="item.quantidade*10"></p-progressBar>
                                 </td>
-                                <td>
+                                <!-- <td>
                                     <p-inputSwitch [(ngModel)]="item.venda_pelo_app" style="border-left: 100px;"></p-inputSwitch>
-                                </td>
+                                </td> -->
                                 <td>
                                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(item)"></button>
                                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(item)"></button>
@@ -89,7 +88,7 @@
                         <div class="row">
                             <div class="col-5">
                                 <img [src]="'./assets/images/mock/' + item.imagem_principal" [alt]="item.imagem_principal" class="block m-auto pb-3" *ngIf="item.imagem_principal" />
-                                <div class="field">
+                                <!-- <div class="field">
                                     <div class="row">
                                         <div class="col-8">
                                             <label for="venda_pelo_app">Vender pelo app: </label>
@@ -98,7 +97,7 @@
                                             <p-inputSwitch [(ngModel)]="item.venda_pelo_app" style="border-left: 100px;"></p-inputSwitch>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-7">
                                 <div class="field">

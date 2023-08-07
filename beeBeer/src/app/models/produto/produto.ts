@@ -16,6 +16,7 @@ export interface Produto {
     imagens: Imagem[]
     imagem_principal?: string //decidir se fica depois
     situacao_produto: SituacaoProdutoEnum
+    possui_processo_de_preparo?: boolean //refernte a pedido
     //onde_comprar    esses dois serão numa proxima versão, 
     //onde_recuperar  quando existir mapa do local
 
