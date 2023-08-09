@@ -8,15 +8,18 @@ import { Lote, LoteMock } from "../ingresso/lote";
 import { Parceiro, ParceiroMock } from "../empresa/parceiro";
 import { Usuario, UsuarioMock } from "../usuario/usuario";
 import { TipoEventoEnum, TipoEventoEnumMock } from "../enum/tipo-evento.enum";
+import { Regra, RegraMock } from "../regra";
 
 export interface Evento {
     id: string //decidir depois se vai virar number
+    //dados cadastrados
     nome: string
     descricao?: string
     tipo: TipoEventoEnum
     endereco: Endereco
     data_inicio: Date
     data_fim: Date
+    regras?: Regra[]
     lotes: Lote[]
     colaboradores: Colaborador[]
     produtos: Produto[]
@@ -24,6 +27,8 @@ export interface Evento {
     imagens?: Imagem[]
     imagem_principal?: string //decidir se fica depois
     parceiros: Parceiro[]
+
+    //dados gerados
     curtidas: number
     quantidade_interessados: number
     usuarios_interessados: Usuario[]
@@ -46,6 +51,7 @@ export class EventoMock {
             endereco: EnderecoMock.getMock(),
             data_inicio: MockRandom.getDatePast(),
             data_fim: MockRandom.getDateFuture(),
+            regras: RegraMock.getMockArray(10),
             lotes: LoteMock.getMockArray(10),
             colaboradores: ColaboradorMock.getMockArray(10),
             produtos: ProdutoMock.getMockArray(10),
