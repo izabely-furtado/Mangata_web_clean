@@ -71,7 +71,7 @@ export class ColaboradorComponent {
 
   delete(item: Colaborador) {
     this.confirmationService.confirm({
-      message: 'Você tem certeza que deseja deletar ' + item.nome + '?',
+      message: 'Você tem certeza que deseja deletar ' + item.usuario.nome + '?',
       header: 'Confirmar',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
@@ -89,7 +89,7 @@ export class ColaboradorComponent {
   save() {
     this.submitted = true;
 
-    if (this.item.nome?.trim()) {
+    if (this.item.usuario.nome?.trim()) {
       if (this.item.id) {
         this.lista[this.findIndexById(this.item.id)] = this.item;
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });

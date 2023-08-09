@@ -1,8 +1,8 @@
 
 import { MockRandom } from "app/utils/mock-random";
-import { Login, LoginMock } from "../colaborador/login";
 import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from "../enum/area-atuacao.enum";
 import { TipoPessoaEnum, TipoPessoaEnumMock } from "../enum/tipo-pessoa.enum";
+import { Login, LoginMock } from "../usuario/login";
 
 export interface Parceiro {
     id: string

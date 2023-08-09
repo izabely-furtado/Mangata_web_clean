@@ -9,7 +9,7 @@ export interface Produto {
     tipo: TipoProdutoEnum
     nome: string
     descricao?: string
-    venda_pelo_app: boolean
+    //venda_pelo_app: boolean
     quantidade: number
     quantidade_vendidos?: number
     preco: number
@@ -33,7 +33,6 @@ export class ProdutoMock {
              tipo: TipoProdutoEnumMock.getMock(),
              nome: MockRandom.getUserName(),
              descricao: MockRandom.getWord(10),
-             venda_pelo_app: MockRandom.getBoolean(),
              quantidade: quantidade_var,
              preco: MockRandom.getFloat(1,10),
              imagens: ImagemMock.getMockArray(2),
@@ -50,7 +49,6 @@ export class ProdutoMock {
             tipo: tipo,
             nome: MockRandom.getUserName(),
             descricao: MockRandom.getWord(10),
-            venda_pelo_app: MockRandom.getBoolean(),
             quantidade: MockRandom.getInteger(1,10),
             preco: MockRandom.getFloat(1,10),
             imagens: ImagemMock.getMockArray(2),
