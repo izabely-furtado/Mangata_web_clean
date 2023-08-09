@@ -9,6 +9,7 @@ import { Parceiro, ParceiroMock } from "../empresa/parceiro";
 import { Usuario, UsuarioMock } from "../usuario/usuario";
 import { TipoEventoEnum, TipoEventoEnumMock } from "../enum/tipo-evento.enum";
 import { Regra, RegraMock } from "../regra";
+import { AreaMusical, AreaMusicalMock } from "../musica/area-musical";
 
 export interface Evento {
     id: string //decidir depois se vai virar number
@@ -27,6 +28,7 @@ export interface Evento {
     imagens?: Imagem[]
     imagem_principal?: string //decidir se fica depois
     parceiros: Parceiro[]
+    area_musical?: AreaMusical
 
     //dados gerados
     curtidas: number
@@ -64,6 +66,7 @@ export class EventoMock {
             usuarios_interessados: UsuarioMock.getMockArray(10),
             quantidade_comprada: MockRandom.getInteger(1,10),
             usuarios_que_compraram: UsuarioMock.getMockArray(10),
+            area_musical: AreaMusicalMock.getMock(),
             valido: MockRandom.getBoolean(),
         };
     }
@@ -90,6 +93,7 @@ export class EventoMock {
             usuarios_interessados: UsuarioMock.getMockArray(10),
             quantidade_comprada: MockRandom.getInteger(1,10),
             usuarios_que_compraram: UsuarioMock.getMockArray(10),
+            area_musical: AreaMusicalMock.getMock(),
             valido: MockRandom.getBoolean(),
         };
     }
