@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SituacaoProdutoEnum, SituacaoProdutoEnumMock } from 'app/models/enum/situacao-produto.enum';
+import { SituacaoEstoqueEnum, SituacaoEstoqueEnumMock } from 'app/models/enum/situacao-estoque.enum';
 import { TipoProdutoEnum, TipoProdutoEnumMock } from 'app/models/enum/tipo-produto.enum';
 import { Produto } from 'app/models/produto/produto';
 import { ProdutoService } from 'app/services/produto.service';
@@ -22,7 +22,7 @@ export class ProdutoComponent {
 
   submitted: boolean = false;
 
-  statuses: SituacaoProdutoEnum[] = SituacaoProdutoEnumMock.getMockArray();
+  statuses: SituacaoEstoqueEnum[] = SituacaoEstoqueEnumMock.getMockArray();
   tipos: TipoProdutoEnum[] = TipoProdutoEnumMock.getMockArray();
 
   constructor(private service: ProdutoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
