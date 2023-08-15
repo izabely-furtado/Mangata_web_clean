@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --configuration=mock",
     "mock": "ng serve --configuration=mock",
     "development": "ng serve --configuration=development",
     "production": "ng serve --configuration=production",
