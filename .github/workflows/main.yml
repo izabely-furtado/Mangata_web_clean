@@ -22,7 +22,7 @@ jobs:
       run: cd beeBeer && npm install && npm install -g @angular/cli@latest
 
     - name: Build Angular app
-      run: cd beeBeer && npm run build --base-href "https://izabely-furtado.github.io/Mangata_web_clean/"
+      run: cd beeBeer && npm run build --base-href "https://izabely-furtado.github.io/Mangata_web_clean/beeBeer"
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
