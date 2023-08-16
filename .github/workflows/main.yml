@@ -25,7 +25,7 @@ jobs:
       run: cd beeBeer && npm run build
 
     - name: Deploy to GitHub Pages
-      run: cd beeBeer && npx ngh --dir=/  # Usando ngh com o diretório de build correto
+      run: cd beeBeer && npx ngh  # Usando ngh com o diretório de build correto
       env:
         NODE_OPTIONS: '--max-old-space-size=4096'  # Aumenta a alocação de memória para evitar erros de alocação
 
