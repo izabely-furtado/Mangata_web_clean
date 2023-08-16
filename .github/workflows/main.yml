@@ -19,13 +19,13 @@ jobs:
         node-version: 18.14.0  # Use a versão correta do Node.js
 
     - name: Install dependencies
-      run: cd .. && cd beeBeer && npm install && npm install -g @angular/cli@latest
+      run: cd beeBeer && npm install && npm install -g @angular/cli@latest
 
     - name: Build Angular app
       run: cd beeBeer && npm run build
 
     - name: Deploy to GitHub Pages
-      run: cd beeBeer && npx ngh  # Usando ngh com o diretório de build correto
+      run: cd .. && cd beeBeer && npx ngh  # Usando ngh com o diretório de build correto
       env:
         NODE_OPTIONS: '--max-old-space-size=4096'  # Aumenta a alocação de memória para evitar erros de alocação
 
