@@ -25,8 +25,9 @@ jobs:
       run: npm run build
 
     - name: Deploy to GitHub Pages
-      run: npx ngh --dir=dist/ # Usando ngh com o diretório de build correto
-      env:
-        NODE_OPTIONS: '--max-old-space-size=4096'  # Aumenta a alocação de memória para evitar erros de alocação
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist  # Caminho para a pasta de build do Angular
 
 
