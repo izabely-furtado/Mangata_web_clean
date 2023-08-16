@@ -22,10 +22,10 @@ jobs:
       run: cd beeBeer && npm install && npm install -g @angular/cli@latest
 
     - name: Build Angular app
-      run: cd beeBeer && npm run build --base-href "https://izabely-furtado.github.io/Mangata_web_clean/beeBeer"
+      run: cd beeBeer && npm run build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./beeBeer/dist  # Caminho para a pasta de build do Angular
+        publish_dir: ./beeBeer/dist/beeBeer  # Caminho para a pasta de build do Angular
