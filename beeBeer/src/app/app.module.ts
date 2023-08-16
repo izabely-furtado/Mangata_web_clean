@@ -106,6 +106,7 @@ import { EnderecoComponent } from './pages/cadastro/endereco/endereco.component'
 import { EnderecoService } from './services/endereco.service';
 import { ColaboradorComponent } from './pages/cadastro/colaborador/colaborador.component';
 import { ParceiroComponent } from './pages/cadastro/parceiro/parceiro.component';
+import { UsuarioService } from './services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -221,7 +222,8 @@ import { ParceiroComponent } from './pages/cadastro/parceiro/parceiro.component'
     ImagemService,
     IngressoService,
     ProdutoService,
-    EnderecoService
+    EnderecoService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

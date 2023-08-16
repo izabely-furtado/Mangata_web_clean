@@ -3,6 +3,7 @@ import { Endereco } from 'app/models/endereco/endereco';
 import { Estado } from 'app/models/endereco/estado';
 import { Erro } from 'app/models/erro/erro';
 import { EnderecoService } from 'app/services/endereco.service';
+import { UsuarioService } from 'app/services/usuario.service';
 import { EstadoService } from 'app/utils/estado.list';
 import { GeralUtil } from 'app/utils/geral.util';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
@@ -27,7 +28,7 @@ export class EnderecoComponent {
   estados: Estado[] = EstadoService.getLista()
   cidades: string[] = [];
 
-  constructor(private service: EnderecoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(private service: EnderecoService, private serviceUsuario: UsuarioService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.items = [{ label: 'Cadastro', url: './cadastro', target: '_self'}, { label: 'Endereco' }];
@@ -35,6 +36,7 @@ export class EnderecoComponent {
 
     this.getAll();
     this.getCidades();
+    this.getAllUsuarios();
   }
 
   openNew() {
@@ -46,6 +48,19 @@ export class EnderecoComponent {
     this.service.getAllEnderecos().subscribe(
       data => {
         this.lista = data
+      },
+      error => {
+        // Handle the error in case of failure
+        console.error('Error fetching states:', error);
+      }
+    )
+  }
+
+  getAllUsuarios() {
+    this.serviceUsuario.getAll().subscribe(
+      data => {
+        debugger
+        console.log(data)
       },
       error => {
         // Handle the error in case of failure
