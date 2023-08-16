@@ -22,10 +22,10 @@ jobs:
       run: cd beeBeer && npm install
 
     - name: Build Angular app
-      run: ng build
+      run: npm install -g @angular/cli@latest && ng build --watch --configuration development
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./beeBeer/dist/beeBeer  # Caminho para a pasta de build do Angular
+        publish_dir: ./dist  # Caminho para a pasta de build do Angular
