@@ -25,7 +25,8 @@ jobs:
       run: cd beeBeer && npm run build
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./beeBeer/dist/beeBeer  # Caminho para a pasta de build do Angular
+      run: cd beeBeer && npx ngh --dir=dist/  # Usando ngh com o diretório de build correto
+      env:
+        NODE_OPTIONS: '--max-old-space-size=4096'  # Aumenta a alocação de memória para evitar erros de alocação
+
+
