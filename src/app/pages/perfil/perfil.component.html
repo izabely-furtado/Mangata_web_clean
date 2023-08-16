@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="card flex justify-content-center">
+            <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+        </div>
+        <p-card header="Perfil">
+            <div class="row">
+                <div class="col-4">
+                    <span class="p-float-label">
+                        <input pInputText id="username" [(ngModel)]="teste" *ngIf="!valid" (change)="validate()"/>
+                        <input pInputText class="ng-invalid ng-dirty" [(ngModel)]="teste" *ngIf="valid" (change)="validate()"/>
+                        <label htmlFor="username">E-mail</label>
+                    </span>
+                </div>
+                <div class="col-4">
+                    <span class="p-float-label">
+                        <input pInputText id="username" [(ngModel)]="teste" *ngIf="!valid" (change)="validate()"/>
+                        <input pInputText class="ng-invalid ng-dirty" [(ngModel)]="teste" *ngIf="valid" (change)="validate()"/>
+                        <label htmlFor="username">CPF</label>
+                    </span>
+                </div>
+                <div class="col-4">
+                    <span class="p-float-label">
+                        <input pInputText id="username" [(ngModel)]="teste" *ngIf="!valid" (change)="validate()"/>
+                        <input pInputText class="ng-invalid ng-dirty" [(ngModel)]="teste" *ngIf="valid" (change)="validate()"/>
+                        <label htmlFor="username">Nascimento</label>
+                    </span>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <p class="m-0">Login:</p>
+                    <input type="text" pInputText [(ngModel)]="name" />
+                </div>
+                <div class="col-6">
+                    <!-- button aqui -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="m-0">Permissões: X Y Z</p>
+                    
+                </div>
+            </div>
+        </p-card>
+
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
