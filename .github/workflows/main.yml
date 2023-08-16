@@ -22,7 +22,7 @@ jobs:
       run: cd beeBeer && npm install
 
     - name: Build Angular app
-      run: ng build --configuration=production
+      run: ng build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
