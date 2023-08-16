@@ -22,7 +22,7 @@ jobs:
       run: cd beeBeer && npm install && npm install -g @angular/cli@latest
 
     - name: Build Angular app
-      run: cd beeBeer && npm build
+      run: cd beeBeer && npm run build
 
     - name: Deploy to GitHub Pages
       run: npx ngh --dir=beeBeer/dist/ # Usando ngh com o diretório de build correto
