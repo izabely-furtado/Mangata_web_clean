@@ -28,4 +28,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./beeBeer/dist  # Caminho para a pasta de build do Angular
+        publish_dir: ./beeBeer/dist/beeBeer  # Caminho para a pasta de build do Angular
