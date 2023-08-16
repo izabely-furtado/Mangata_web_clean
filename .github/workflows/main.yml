@@ -19,7 +19,7 @@ jobs:
         node-version: 18.14.0  # Use a versão correta do Node.js
 
     - name: Install dependencies
-      run: cd beeBeer && npm install && npm install -g @angular/cli@latest
+      run: cd .. && cd beeBeer && npm install && npm install -g @angular/cli@latest
 
     - name: Build Angular app
       run: cd beeBeer && npm run build
