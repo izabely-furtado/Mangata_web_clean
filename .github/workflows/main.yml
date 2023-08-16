@@ -19,10 +19,10 @@ jobs:
         node-version: 18.14.0  # Use a versão correta do Node.js
 
     - name: Install dependencies
-      run: cd beeBeer && npm install
+      run: cd beeBeer && npm install && npm install -g @angular/cli@latest
 
     - name: Build Angular app
-      run: npm install -g @angular/cli@latest && ng build --watch --configuration development
+      run: ng build --watch --configuration development
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
