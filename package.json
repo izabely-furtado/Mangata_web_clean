@@ -1,5 +1,6 @@
 {
   "name": "bee-beer",
+  "homepage": "https://izabely-furtado.github.io/Mangata_web_clean/",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
