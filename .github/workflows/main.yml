@@ -25,6 +25,6 @@ jobs:
       run: npm run build
 
     - name: Deploy to GitHub Pages
-      run: npx ngh --dir=dist/ # Usando ngh com o diretório de build correto
+      run: npx ngh --dir=src/ # Usando ngh com o diretório de build correto
       env:
         NODE_OPTIONS: '--max-old-space-size=4096'  # Aumenta a alocação de memória para evitar erros de alocação
