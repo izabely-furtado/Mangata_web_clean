@@ -1,7 +1,12 @@
-FROM node:alpine
-WORKDIR '/app'
-COPY package.json .
+FROM node:16.16.0
+RUN mkdir -p /src/app
+WORKDIR '/src/app'
+COPY package.json package.json
+COPY package-lock.json package-lock.json
 RUN npm install
-COPY . .
-EXPOSE 4200
-CMD ["npm", "run", "start"]
+COPY . /src/app
+#EXPOSE 4200
+EXPOSE 8080
+#CMD [ "node", "server.js" ]
+CMD ["npm", "start"]
+#CMD ["npm", "run", "start"]
