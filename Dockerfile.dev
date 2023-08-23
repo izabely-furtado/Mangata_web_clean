@@ -6,9 +6,9 @@ COPY package-lock.json package-lock.json
 RUN npm install
 COPY . /src/app
 #EXPOSE 4200
-EXPOSE 8080
-#EXPOSE 80/tcp
-#EXPOSE 80/udp
+#EXPOSE 8080
+EXPOSE 80/tcp
+EXPOSE 80/udp
 #CMD [ "node", "server.js" ]
 CMD ["npm", "start"]
 #CMD ["npm", "run", "start"]
