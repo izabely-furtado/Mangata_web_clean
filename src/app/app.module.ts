@@ -98,6 +98,7 @@ import { ImagemService } from './services/imagem.service';
 import { ProdutoService } from './services/produto.service';
 import { EmpresaService } from './services/empresa.service';
 import { ColaboradorService } from './services/colaborador.service';
+import { EventoService } from './services/evento.service';
 import { IngressoService } from './services/ingresso.service';
 import { MenuLateralComponent } from './components/menu-lateral/menu-lateral.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
@@ -105,6 +106,7 @@ import { ProdutoComponent } from './pages/cadastro/produto/produto.component';
 import { EnderecoComponent } from './pages/cadastro/endereco/endereco.component';
 import { EnderecoService } from './services/endereco.service';
 import { ColaboradorComponent } from './pages/cadastro/colaborador/colaborador.component';
+import { EventoComponent } from './pages/cadastro/eventos/evento.component';
 import { ParceiroComponent } from './pages/cadastro/parceiro/parceiro.component';
 import { UsuarioService } from './services/usuario.service';
 
@@ -123,6 +125,7 @@ import { UsuarioService } from './services/usuario.service';
     ProdutoComponent,
     EnderecoComponent,
     ColaboradorComponent,
+    EventoComponent,
     ParceiroComponent
   ],
   imports: [
@@ -218,6 +221,7 @@ import { UsuarioService } from './services/usuario.service';
     MessageService, 
     ConfirmationService,
     ColaboradorService,
+    EventoService,
     EmpresaService, 
     ImagemService,
     IngressoService,
