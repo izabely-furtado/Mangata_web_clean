@@ -94,40 +94,26 @@
                                     <small class="p-error" *ngIf="submitted && !item.nome">Name is required.</small>
                                 </div>
                                 <div class="field">
+                                    <label for="data_inicio">Inicio?:</label>
+                                    <p-calendar [(ngModel)]="item.data_inicio" dateFormat="dd.mm.yy"></p-calendar>
+                                </div>
+                                <div class="field">
+                                    <label for="data_fim">Fim?:</label>
+                                    <p-calendar [(ngModel)]="item.data_fim" dateFormat="dd.mm.yy"></p-calendar>
+                                </div>
+                                <div class="field">
+                                    <label for="descricao">Descrição?:</label>
+                                    <input type="text" pInputText id="apelido" [(ngModel)]="item.descricao" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.descricao">Apelido is required.</small>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                            </div>
+                            <div class="col-12">
+                                <div class="field">
                                     <label for="regras">Regras?:</label>
-                                    <p-calendar [(ngModel)]="item.regras" dateFormat="dd.mm.yy"></p-calendar>
-                                </div>
-                                <div class="field">
-                                    <label for="cpf">CPF?:</label>
-                                    <input type="text" pInputText id="cpf" [(ngModel)]="item.cpf" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.cpf">Apelido is required.</small>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="field">
-                                    <label for="permissoes">Permissôes:</label>
-                                    <p-multiSelect [options]="permissoes" [(ngModel)]="item.permissoes" itemSize="200"></p-multiSelect>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="field">
-                                    <label for="apelido">Apelido:</label>
-                                    <input type="text" pInputText id="apelido" [(ngModel)]="item.apelido" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.apelido">Apelido is required.</small>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="field">
-                                    <label for="login.email">E-mail:</label>
-                                    <input type="text" pInputText id="login.email" [(ngModel)]="item.login.email" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.login.email">Apelido is required.</small>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="field">
-                                    <label for="login.email">Username:</label>
-                                    <input type="text" pInputText id="login.username" [(ngModel)]="item.login.username" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.login.username">Apelido is required.</small>
+                                    <input type="text" pInputText id="apelido" [(ngModel)]="item.regras" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.regras">Apelido is required.</small>
                                 </div>
                             </div>
                             
