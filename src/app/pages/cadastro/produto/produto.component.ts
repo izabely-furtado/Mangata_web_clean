@@ -37,6 +37,7 @@ export class ProdutoComponent {
 
   openNew() {
     this.submitted = false;
+    this.item = {} as Produto;
     this.productDialog = true;
   }
 

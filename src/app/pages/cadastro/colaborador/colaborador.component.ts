@@ -35,6 +35,7 @@ export class ColaboradorComponent {
 
   openNew() {
     this.submitted = false;
+    this.item = {} as Colaborador;
     this.colaboradorDialog = true;
   }
 

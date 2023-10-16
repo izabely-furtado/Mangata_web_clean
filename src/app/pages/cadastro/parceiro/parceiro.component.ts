@@ -39,6 +39,7 @@ export class ParceiroComponent {
 
   openNew() {
     this.submitted = false;
+    this.item = {} as Parceiro;
     this.parceiroDialog = true;
   }
 

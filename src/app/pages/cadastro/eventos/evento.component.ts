@@ -35,6 +35,7 @@ export class EventoComponent {
 
   openNew() {
     this.submitted = false; 
+    this.item = {} as Evento;
     this.eventoDialog = true;
   }
 
