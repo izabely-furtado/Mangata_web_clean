@@ -3,8 +3,10 @@ import { Parceiro } from 'app/models/empresa/parceiro';
 import { AreaAtuacaoEnum, AreaAtuacaoEnumMock } from 'app/models/enum/area-atuacao.enum';
 import { TipoPermissaoEnum, TipoPermissaoEnumMock } from 'app/models/enum/tipo-permissao.enum';
 import { TipoPessoaEnum, TipoPessoaEnumMock } from 'app/models/enum/tipo-pessoa.enum';
+import { Login } from 'app/models/usuario/login';
 import { EmpresaService } from 'app/services/empresa.service';
 import { GeralUtil } from 'app/utils/geral.util';
+import { LogarithmicScale } from 'chart.js';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
@@ -40,6 +42,8 @@ export class ParceiroComponent {
   openNew() {
     this.submitted = false;
     this.item = {} as Parceiro;
+    this.item.login = {} as Login;
+
     this.parceiroDialog = true;
   }
 

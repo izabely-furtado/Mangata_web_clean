@@ -119,8 +119,8 @@
                             <div class="col-6">
                                 <div class="field">
                                     <label for="login.email">E-mail:</label>
-                                    <input type="text" pInputText id="login.email" [(ngModel)]="item.usuario.login.email" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.usuario.login.email">Apelido is required.</small>
+                                    <input type="text" pInputText id="contato.email" [(ngModel)]="item.contato.email" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.contato.email">Apelido is required.</small>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -135,7 +135,7 @@
                         </div>
                         
                     </ng-template>
-                
+            teste
                     <ng-template pTemplate="footer">
                         <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
                         <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="save()"></button>

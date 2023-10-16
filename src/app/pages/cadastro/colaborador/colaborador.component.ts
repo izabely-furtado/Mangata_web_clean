@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { Colaborador } from 'app/models/colaborador/colaborador';
+import { Contato } from 'app/models/colaborador/contato';
 import { TipoPermissaoEnum, TipoPermissaoEnumMock } from 'app/models/enum/tipo-permissao.enum';
+import { Login } from 'app/models/usuario/login';
+import { Usuario } from 'app/models/usuario/usuario';
 import { ColaboradorService } from 'app/services/colaborador.service';
 import { GeralUtil } from 'app/utils/geral.util';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
@@ -36,6 +39,10 @@ export class ColaboradorComponent {
   openNew() {
     this.submitted = false;
     this.item = {} as Colaborador;
+    this.item.usuario = {} as Usuario;
+    this.item.contato = {} as Contato;
+    this.item.usuario.login = {} as Login;
+
     this.colaboradorDialog = true;
   }
 
