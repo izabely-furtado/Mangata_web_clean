@@ -50,7 +50,7 @@ export class EventoMock {
             nome: MockRandom.getName(),
             descricao: MockRandom.getSentence(),
             tipo: TipoEventoEnumMock.getMock(),
-            endereco: EnderecoMock.getMock(),
+            endereco: EnderecoMock.getMock(), 
             data_inicio: MockRandom.getDatePast(),
             data_fim: MockRandom.getDateFuture(),
             regras: RegraMock.getMockArray(10),

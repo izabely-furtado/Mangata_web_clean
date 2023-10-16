@@ -15,7 +15,7 @@ export interface Colaborador {
 
 export class ColaboradorMock {
     static lista: Colaborador[];
-
+ 
     public static getMock(): Colaborador {
         return {
             id: MockRandom.getInteger(1, 100) + '',

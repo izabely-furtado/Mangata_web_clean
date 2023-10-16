@@ -6,7 +6,7 @@
         <div class="card flex justify-content-center">
             <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
         </div>
-        <p-card header="Gerenciamento de Colaboradores/Funcionários">
+        <p-card header="Gerenciamento de Eventos">
             
                 <!-- tabelinha a seguir -->
 
@@ -17,7 +17,7 @@
                         [value]="lista"
                         [rows]="10"
                         [paginator]="true"
-                        [globalFilterFields]="['login', 'usuario.nome', 'usuario.apelido', 'usuario.cpf', 'usuario.nascimento']"
+                        [globalFilterFields]="['nome', 'inicio', 'fim', 'descricao', 'regras']"
                         [tableStyle]="{ 'min-width': '75rem' }"
                         [(selection)]="selecteds"
                         [rowHover]="true"
@@ -49,11 +49,11 @@
                                     <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                                 </th>
                                 <th>Imagem</th>
-                                <th pSortableColumn="usuario.login">Login <p-sortIcon field="login"></p-sortIcon></th>
-                                <th pSortableColumn="usuario.nome">Nome <p-sortIcon field="usuario.nome"></p-sortIcon></th>
-                                <th pSortableColumn="usuario.apelido">Apelido <p-sortIcon field="usuario.apelido"></p-sortIcon></th>
-                                <th pSortableColumn="usuario.cpf">CPF <p-sortIcon field="usuario.cpf"></p-sortIcon></th>
-                                <th pSortableColumn="usuario.nascimento">Nascimento <p-sortIcon field="usuario.nascimento"></p-sortIcon></th>
+                                <th pSortableColumn="nome">Nome <p-sortIcon field="nome"></p-sortIcon></th>
+                                <th pSortableColumn="login">Inicio <p-sortIcon field="login"></p-sortIcon></th>
+                                <th pSortableColumn="apelido">Fim <p-sortIcon field="apelido"></p-sortIcon></th>
+                                <th pSortableColumn="cpf">Descrição <p-sortIcon field="cpf"></p-sortIcon></th>
+                                <th pSortableColumn="regras">Regras <p-sortIcon field="regras"></p-sortIcon></th>
                                 
                                 <th style="width: 8rem"></th>
                             </tr>
@@ -63,12 +63,12 @@
                                 <td>
                                     <p-tableCheckbox [value]="item"></p-tableCheckbox>
                                 </td>
-                                <td><img [src]="'./assets/images/mock/' + item.usuario.imagem" [alt]="item.usuario.nome" width="50" class="shadow-4" /></td>
-                                <td>{{ item.usuario.login.email }}</td>
-                                <td>{{ item.usuario.nome }}</td>
-                                <td>{{ item.usuario.apelido }}</td>
-                                <td>{{ item.usuario.cpf }}</td>
-                                <td>{{ item.usuario.nascimento | date:'dd/MM/yyyy'}}</td>
+                                <td><img [src]="'./assets/images/mock/' + item.imagem_principal" [alt]="item.nome" width="50" class="shadow-4" /></td>
+                                <td>{{ item.nome }}</td>
+                                <td>{{ item.data_inicio }}</td>
+                                <td>{{ item.data_fim }}</td>
+                                <td>{{ item.descricao }}</td>
+                                <td>{{ item.regras }}</td>
                                 <td>
                                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="edit(item)"></button>
                                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="delete(item)"></button>
@@ -80,54 +80,40 @@
                         </ng-template>
                     </p-table>
                 </div>
-                <p-dialog [(visible)]="colaboradorDialog" [style]="{ width: '40%' }" header="Detalhes do Colaborador" [modal]="true" styleClass="p-fluid">
+                <p-dialog [(visible)]="eventoDialog" [style]="{ width: '40%' }" header="Detalhes do Evento" [modal]="true" styleClass="p-fluid">
                     <ng-template pTemplate="content">
                         <div class="row">
                             <div class="col-5">
-                                <img [src]="'./assets/images/mock/' + item.usuario.imagem" [alt]="item.usuario.imagem" class="block m-auto pb-3" *ngIf="item.usuario.imagem" />
+                                <img [src]="'./assets/images/mock/' + item.imagem_principal" [alt]="item.imagem_principal" class="block m-auto pb-3" *ngIf="item.imagem_principal" />
                                 
                             </div>
                             <div class="col-7">
                                 <div class="field">
                                     <label for="nome">Nome:</label>
-                                    <input type="text" pInputText id="nome" [(ngModel)]="item.usuario.nome" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.usuario.nome">Name is required.</small>
+                                    <input type="text" pInputText id="nome" [(ngModel)]="item.nome" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.nome">Name is required.</small>
                                 </div>
                                 <div class="field">
-                                    <label for="nascimento">Nascimento?:</label>
-                                    <p-calendar [(ngModel)]="item.usuario.nascimento" dateFormat="dd.mm.yy"></p-calendar>
+                                    <label for="data_inicio">Inicio?:</label>
+                                    <p-calendar [(ngModel)]="item.data_inicio" dateFormat="dd.mm.yy"></p-calendar>
                                 </div>
                                 <div class="field">
-                                    <label for="cpf">CPF?:</label>
-                                    <input type="text" pInputText id="cpf" [(ngModel)]="item.usuario.cpf" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.usuario.cpf">Apelido is required.</small>
+                                    <label for="data_fim">Fim?:</label>
+                                    <p-calendar [(ngModel)]="item.data_fim" dateFormat="dd.mm.yy"></p-calendar>
                                 </div>
-                            </div>
-                            <div class="col-12">
                                 <div class="field">
-                                    <label for="permissoes">Permissôes:</label>
-                                    <p-multiSelect [options]="permissoes" [(ngModel)]="item.permissoes" itemSize="200"></p-multiSelect>
+                                    <label for="descricao">Descrição?:</label>
+                                    <input type="text" pInputText id="apelido" [(ngModel)]="item.descricao" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.descricao">Apelido is required.</small>
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="field">
-                                    <label for="apelido">Apelido:</label>
-                                    <input type="text" pInputText id="apelido" [(ngModel)]="item.usuario.apelido" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.usuario.apelido">Apelido is required.</small>
-                                </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-12">
                                 <div class="field">
-                                    <label for="login.email">E-mail:</label>
-                                    <input type="text" pInputText id="contato.email" [(ngModel)]="item.contato.email" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.contato.email">Apelido is required.</small>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="field">
-                                    <label for="login.email">Username:</label>
-                                    <input type="text" pInputText id="login.username" [(ngModel)]="item.usuario.login.username" required autofocus />
-                                    <small class="p-error" *ngIf="submitted && !item.usuario.login.username">Apelido is required.</small>
+                                    <label for="regras">Regras?:</label>
+                                    <input type="text" pInputText id="apelido" [(ngModel)]="item.regras" required autofocus />
+                                    <small class="p-error" *ngIf="submitted && !item.regras">Apelido is required.</small>
                                 </div>
                             </div>
                             
@@ -135,7 +121,7 @@
                         </div>
                         
                     </ng-template>
-            teste
+                 
                     <ng-template pTemplate="footer">
                         <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
                         <button pButton pRipple label="Salvar" icon="pi pi-check" class="p-button-text" (click)="save()"></button>

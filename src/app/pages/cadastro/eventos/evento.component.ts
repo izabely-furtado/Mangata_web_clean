@@ -1,34 +1,32 @@
 import { Component } from '@angular/core';
-import { SituacaoEstoqueEnum, SituacaoEstoqueEnumMock } from 'app/models/enum/situacao-estoque.enum';
-import { TipoProdutoEnum, TipoProdutoEnumMock } from 'app/models/enum/tipo-produto.enum';
-import { Produto } from 'app/models/produto/produto';
-import { ProdutoService } from 'app/services/produto.service';
+import { Evento } from 'app/models/evento/evento';
+import { TipoPermissaoEnum, TipoPermissaoEnumMock } from 'app/models/enum/tipo-permissao.enum';
+import { EventoService } from 'app/services/evento.service';
 import { GeralUtil } from 'app/utils/geral.util';
 import { ConfirmationService, MenuItem, MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.scss']
+  selector: 'app-evento',
+  templateUrl: './evento.component.html',
+  styleUrls: ['./evento.component.scss']
 })
-export class ProdutoComponent {
+export class EventoComponent {
   items: MenuItem[] | undefined;
   home: MenuItem | undefined;
 
-  productDialog: boolean = false;
-  lista!: Produto[];
-  item!: Produto;
-  selecteds!: Produto[] | null;
+  eventoDialog: boolean = false;
+  lista!: Evento[];
+  item!: Evento;
+  selecteds!: Evento[] | null;
 
   submitted: boolean = false;
 
-  statuses: SituacaoEstoqueEnum[] = SituacaoEstoqueEnumMock.getMockArray();
-  tipos: TipoProdutoEnum[] = TipoProdutoEnumMock.getMockArray();
+  permissoes: TipoPermissaoEnum[] = TipoPermissaoEnumMock.getMockArray();
 
-  constructor(private service: ProdutoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(private service: EventoService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.items = [{ label: 'Cadastro', url: './cadastro', target: '_self'}, { label: 'Produto' }];
+    this.items = [{ label: 'Cadastro', url: './cadastro', target: '_self'}, { label: 'Evento' }];
 
     this.home = { icon: 'pi pi-home', routerLink: '/' };
 
@@ -36,13 +34,13 @@ export class ProdutoComponent {
   }
 
   openNew() {
-    this.submitted = false;
-    this.item = {} as Produto;
-    this.productDialog = true;
+    this.submitted = false; 
+    this.item = {} as Evento;
+    this.eventoDialog = true;
   }
 
   getAll() {
-    this.service.getAllProdutos().subscribe(
+    this.service.getAllEventos().subscribe(
       data => {
         this.lista = data
       },
@@ -66,12 +64,13 @@ export class ProdutoComponent {
     });
   }
 
-  edit(item: Produto) {
+  edit(item: Evento) {
     this.item = { ...item };
-    this.productDialog = true;
+    //fazer o check nos itens existentes no enum do item
+    this.eventoDialog = true;
   }
 
-  delete(item: Produto) {
+  delete(item: Evento) {
     this.confirmationService.confirm({
       message: 'Você tem certeza que deseja deletar ' + item.nome + '?',
       header: 'Confirmar',
@@ -84,7 +83,7 @@ export class ProdutoComponent {
   }
 
   hideDialog() {
-    this.productDialog = false;
+    this.eventoDialog = false;
     this.submitted = false;
   }
 
@@ -97,13 +96,12 @@ export class ProdutoComponent {
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Atualizado', life: 3000 });
       } else {
         this.item.id = GeralUtil.createId();
-        this.item.imagem_principal = 'product-placeholder.svg';
         this.lista.push(this.item);
         this.messageService.add({ severity: 'success', summary: 'Sucesso', detail: 'Item Criado', life: 3000 });
       }
 
       this.lista = [...this.lista];
-      this.productDialog = false;
+      this.eventoDialog = false;
     }
   }
 

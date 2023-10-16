@@ -41,6 +41,7 @@ export class EnderecoComponent {
 
   openNew() {
     this.submitted = false;
+    this.item = {} as Endereco;
     this.productDialog = true;
   }
 

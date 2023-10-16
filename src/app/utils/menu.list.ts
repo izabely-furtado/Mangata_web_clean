@@ -53,7 +53,7 @@ export class MenuService {
           {
               label: 'Eventos',
               icon: './assets/images/3D-Icons/13.png',
-              url: './eventos',
+              url: './cadastro/eventos',
               target: '_self'
           },
           {
